@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)file:///C:/Users/jmarti/Downloads/index.html -->
+<html lang="ca"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jordi Martí · Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link href="./index_files/css2" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #0d0f12;
+      --bg2:       #13161b;
+      --bg3:       #1a1e25;
+      --border:    #252a33;
+      --accent:    #00d4aa;
+      --accent2:   #0097ff;
+      --text:      #e2e8f0;
+      --muted:     #64748b;
+      --mono:      'IBM Plex Mono', monospace;
+      --sans:      'IBM Plex Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(13,15,18,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .nav-logo span { color: var(--muted); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-label::before {
+      content: '';
+      width: 2rem; height: 1px;
+      background: var(--accent);
+    }
+    h1 {
+      font-family: var(--mono);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    h1 .dim { color: var(--muted); font-weight: 400; }
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+    .hero-tagline strong { color: var(--text); font-weight: 500; }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.75rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 600;
+    }
+    .btn-primary:hover { background: #00f0c0; transform: translateY(-2px); }
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: var(--mono);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 0; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .section-tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    h2 {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--bg2); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .skill-item {
+      background: var(--bg2);
+      padding: 1.25rem 1.5rem;
+      transition: background 0.2s;
+    }
+    .skill-item:hover { background: var(--bg3); }
+    .skill-name {
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    .skill-cat {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .skill-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+    .skill-dot.blue { background: var(--accent2); }
+    .skill-dot.dim { background: var(--border); }
+
+    /* ── PROJECTS ── */
+    .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .project-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+    .project-num {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .project-title {
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 1rem;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      background: var(--bg3);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      letter-spacing: 0.05em;
+    }
+    .project-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: flex-end;
+    }
+    .project-links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .project-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── FORMACIÓ ── */
+    #formacio { background: var(--bg2); }
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 8px;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2.5rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.4rem; top: 8px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg2);
+    }
+    .timeline-date {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.25rem;
+    }
+    .timeline-title {
+      font-family: var(--mono);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+    .timeline-where {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    /* ── CONTACTE ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .contact-item {
+      background: var(--bg);
+      padding: 2rem;
+      text-decoration: none;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .contact-item:hover { background: var(--bg3); }
+    .contact-icon {
+      font-family: var(--mono);
+      font-size: 1.4rem;
+      width: 2.5rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .contact-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.15rem;
+    }
+    .contact-value {
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    footer p {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    footer span { color: var(--accent); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease both; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero-stats { gap: 2rem; flex-wrap: wrap; }
+      .project-card { grid-template-columns: 1fr; }
+      .project-links { flex-direction: row; align-items: flex-start; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <a class="nav-logo" href="file:///C:/Users/jmarti/Downloads/index.html#hero">jordi-marti<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="file:///C:/Users/jmarti/Downloads/index.html#skills">Skills</a></li>
+        <li><a href="file:///C:/Users/jmarti/Downloads/index.html#projectes">Projectes</a></li>
+        <li><a href="file:///C:/Users/jmarti/Downloads/index.html#formacio">Formació</a></li>
+        <li><a href="file:///C:/Users/jmarti/Downloads/index.html#contacte">Contacte</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <p class="hero-label fade-up">Disponible per a noves oportunitats</p>
+      <h1 class="fade-up delay-1">
+        Jordi Martí<br>
+        <span class="dim">— Developer</span>
+      </h1>
+      <p class="hero-tagline fade-up delay-2">
+        Enginyer amb àmplia experiència tècnica <strong>obrint una nova etapa com a developer</strong>.
+        Especialitzat en Python, automatització i anàlisi de dades.
+        Rigor d'enginyeria aplicat al programari.
+      </p>
+      <div class="hero-cta fade-up delay-3">
+        <a href="file:///C:/Users/jmarti/Downloads/index.html#projectes" class="btn btn-primary">Veure projectes →</a>
+        <a href="https://github.com/jordi-marti-dev" target="_blank" class="btn btn-ghost">GitHub</a>
+        <a href="https://linkedin.com/in/jordi-marti-dev" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      </div>
+      <div class="hero-stats fade-up delay-4">
+        <div>
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Anys d'experiència tècnica</div>
+        </div>
+        <div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">Projectes al portfolio</div>
+        </div>
+        <div>
+          <div class="stat-num">Python</div>
+          <div class="stat-label">Llenguatge principal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">01</span>
+        <h2>Skills &amp; Tecnologies</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>Python</div>
+          <div class="skill-cat">Llenguatge principal</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>Pandas · NumPy</div>
+          <div class="skill-cat">Anàlisi de dades</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot blue"></span>Git · GitHub</div>
+          <div class="skill-cat">Control de versions</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot blue"></span>HTML · CSS</div>
+          <div class="skill-cat">Frontend bàsic</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot dim"></span>SQL</div>
+          <div class="skill-cat">Bases de dades</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot dim"></span>Linux · Bash</div>
+          <div class="skill-cat">Entorn de treball</div>
+        </div>
+        <!-- Afegeix més skills aquí -->
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTES -->
+  <section id="projectes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">02</span>
+        <h2>Projectes</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-list">
+
+        <div class="project-card">
+          <div>
+            <div class="project-num">Projecte 01</div>
+            <div class="project-title">Nom del projecte</div>
+            <p class="project-desc">
+              Descripció breu del projecte: quin problema resol, quin és el resultat principal
+              i per a qui és útil. Dues o tres frases màxim.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Matplotlib</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/jordi-marti-dev/projecte-1" target="_blank">GitHub →</a>
+            <a href="file:///C:/Users/jmarti/Downloads/index.html#" target="_blank">Demo →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="project-num">Projecte 02</div>
+            <div class="project-title">Nom del projecte</div>
+            <p class="project-desc">
+              Descripció breu del projecte. Destaca la complexitat tècnica o l'impacte pràctic.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">SQLite</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/jordi-marti-dev/projecte-2" target="_blank">GitHub →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="project-num">Projecte 03</div>
+            <div class="project-title">Nom del projecte</div>
+            <p class="project-desc">
+              Descripció breu del projecte. Pots mencionar el context professional d'on va
+              sorgir la necessitat.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Automatització</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/jordi-marti-dev/projecte-3" target="_blank">GitHub →</a>
+            <a href="file:///C:/Users/jmarti/Downloads/index.html#" target="_blank">Vídeo →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMACIÓ -->
+  <section id="formacio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">03</span>
+        <h2>Formació</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">2024 – Actualitat</div>
+          <div class="timeline-title">Nom del cicle formatiu / curs</div>
+          <div class="timeline-where">Centre educatiu · Barcelona</div>
+          <p class="timeline-desc">Breu descripció del que estàs estudiant i les competències que estàs adquirint.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Any – Any</div>
+          <div class="timeline-title">Titulació d'enginyeria</div>
+          <div class="timeline-where">Universitat / escola tècnica · Barcelona</div>
+          <p class="timeline-desc">Especialitat i àmbit tècnic de la titulació.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Any</div>
+          <div class="timeline-title">Certificació o curs rellevant</div>
+          <div class="timeline-where">Plataforma / institució</div>
+          <p class="timeline-desc">Python, dades, cloud, o qualsevol formació complementària.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTE -->
+  <section id="contacte">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">04</span>
+        <h2>Contacte</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-item" href="mailto:jordi.marti.dev@gmail.com">
+          <div class="contact-icon">✉</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">jordi.marti.dev@gmail.com</div>
+          </div>
+        </a>
+        <a class="contact-item" href="https://github.com/jordi-marti-dev" target="_blank">
+          <div class="contact-icon">⌥</div>
+          <div>
+            <div class="contact-label">GitHub</div>
+            <div class="contact-value">jordi-marti-dev</div>
+          </div>
+        </a>
+        <a class="contact-item" href="https://linkedin.com/in/jordi-marti-dev" target="_blank">
+          <div class="contact-icon">◈</div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value">jordi-marti-dev</div>
+          </div>
+        </a>
+        <a class="contact-item" href="https://youtube.com/@jordi-marti-dev" target="_blank">
+          <div class="contact-icon">▶</div>
+          <div>
+            <div class="contact-label">YouTube</div>
+            <div class="contact-value">Demos dels projectes</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>
+        Jordi Martí · <span>jordi-marti-dev</span> ·
+        Construït amb HTML/CSS · Hostatjat a GitHub Pages
+      </p>
+    </div>
+  </footer>
+
+
+
+</body></html>
