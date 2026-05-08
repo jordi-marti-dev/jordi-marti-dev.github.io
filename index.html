@@ -3,8 +3,9 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jordi Martí · Developer Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link href="./index_files/css2" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg:        #0d0f12;
@@ -429,41 +430,6 @@
     }
   </style>
   
-  <!-- Modal for YouTube video -->
-  <div id="videoModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);">
-    <div style="position: relative; max-width: 800px; margin: 5% auto; padding: 0;">
-      <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 20px; top: 10px; z-index: 1001;">&times;</span>
-      <iframe id="videoPlayer" width="100%" height="450" style="border: none;" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <script>
-    const videoLinks = document.querySelectorAll('[data-video-modal="true"]');
-    const modal = document.getElementById('videoModal');
-    const videoPlayer = document.getElementById('videoPlayer');
-    const closeBtn = document.querySelector('.close');
-
-    videoLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const videoId = link.href.split('/embed/')[1].split('?')[0];
-        videoPlayer.src = link.href + '?autoplay=1&rel=0';
-        modal.style.display = 'block';
-      });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-      videoPlayer.src = '';
-    });
-
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-        videoPlayer.src = '';
-      }
-    });
-  </script>
 </head>
 <body>
 
@@ -569,7 +535,9 @@
             <div class="project-num">Projecte 01</div>
             <div class="project-title">Projecte Cangur</div>
             <p class="project-desc">
-              <strong>Informació:</strong>.
+              <strong>Informació:</strong> Sistema d'automatització per a la gestió de proves matemàtiques a gran escala. 
+              Inclou la correcció automatitzada de formularis, el processament de dades dels participants i la generació dinàmica 
+              de diplomes personalitzats i informes de resultats mitjançant Python.
             </p>
             <div class="project-tags">
               <span class="tag">Python</span>
@@ -666,7 +634,7 @@
             <div class="contact-value">jordi-marti-dev</div>
           </div>
         </a>
-        <a class="contact-item" href="https://linkedin.com/in/jordi-marti-dev" target="_blank">
+        <a class="contact-item" href="https://es.linkedin.com/in/jmartiprats" target="_blank">
           <div class="contact-icon">◈</div>
           <div>
             <div class="contact-label">LinkedIn</div>
@@ -683,6 +651,41 @@
       </div>
     </div>
   </section>
+
+  <!-- Modal for YouTube video -->
+  <div id="videoModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);">
+    <div style="position: relative; max-width: 800px; margin: 5% auto; padding: 0;">
+      <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 20px; top: 10px; z-index: 1001;">&times;</span>
+      <iframe id="videoPlayer" width="100%" height="450" style="border: none;" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script>
+    const videoLinks = document.querySelectorAll('[data-video-modal="true"]');
+    const modal = document.getElementById('videoModal');
+    const videoPlayer = document.getElementById('videoPlayer');
+    const closeBtn = document.querySelector('.close');
+
+    videoLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        videoPlayer.src = link.href.split('?')[0] + '?autoplay=1&rel=0';
+        modal.style.display = 'block';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      videoPlayer.src = '';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        videoPlayer.src = '';
+      }
+    });
+  </script>
 
   <!-- FOOTER -->
   <footer>
