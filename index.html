@@ -1,435 +1,13 @@
 <!DOCTYPE html>
-<html lang="ca"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jordi Martí · Developer Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:        #0d0f12;
-      --bg2:       #13161b;
-      --bg3:       #1a1e25;
-      --border:    #252a33;
-      --accent:    #00d4aa;
-      --accent2:   #0097ff;
-      --text:      #e2e8f0;
-      --muted:     #64748b;
-      --mono:      'IBM Plex Mono', monospace;
-      --sans:      'IBM Plex Sans', sans-serif;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
-
-    /* ── LAYOUT ── */
-    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(13,15,18,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 0;
-    }
-    nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 0.9rem;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-    }
-    .nav-logo span { color: var(--muted); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    #hero::before {
-      content: '';
-      position: absolute;
-      top: -200px; right: -200px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-label {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .hero-label::before {
-      content: '';
-      width: 2rem; height: 1px;
-      background: var(--accent);
-    }
-    h1 {
-      font-family: var(--mono);
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      font-weight: 600;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-    h1 .dim { color: var(--muted); font-weight: 400; }
-    .hero-tagline {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 520px;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-    }
-    .hero-tagline strong { color: var(--text); font-weight: 500; }
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .btn {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.75rem 1.75rem;
-      border-radius: 3px;
-      text-decoration: none;
-      transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-      font-weight: 600;
-    }
-    .btn-primary:hover { background: #00f0c0; transform: translateY(-2px); }
-    .btn-ghost {
-      border: 1px solid var(--border);
-      color: var(--muted);
-    }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
-    .hero-stats {
-      display: flex;
-      gap: 3rem;
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-    }
-    .stat-num {
-      font-family: var(--mono);
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--accent);
-    }
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-    }
-
-    /* ── SECTIONS ── */
-    section { padding: 6rem 0; }
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-    .section-tag {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-    h2 {
-      font-family: var(--mono);
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ── SKILLS ── */
-    #skills { background: var(--bg2); }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .skill-item {
-      background: var(--bg2);
-      padding: 1.25rem 1.5rem;
-      transition: background 0.2s;
-    }
-    .skill-item:hover { background: var(--bg3); }
-    .skill-name {
-      font-family: var(--mono);
-      font-size: 0.88rem;
-      color: var(--text);
-      margin-bottom: 0.25rem;
-    }
-    .skill-cat {
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-    .skill-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      display: inline-block;
-      margin-right: 0.5rem;
-    }
-    .skill-dot.blue { background: var(--accent2); }
-    .skill-dot.dim { background: var(--border); }
-
-    /* ── PROJECTS ── */
-    .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
-    .project-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .project-card:hover {
-      border-color: var(--accent);
-      transform: translateX(4px);
-    }
-    .project-num {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-    .project-title {
-      font-family: var(--mono);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-    .project-desc {
-      font-size: 0.9rem;
-      color: var(--muted);
-      max-width: 560px;
-      margin-bottom: 1rem;
-    }
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .tag {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 2px;
-      background: var(--bg3);
-      color: var(--muted);
-      border: 1px solid var(--border);
-      letter-spacing: 0.05em;
-    }
-    .project-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      align-items: flex-end;
-    }
-    .project-links a {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.4rem 0.8rem;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
-    .project-links a:hover { color: var(--accent); border-color: var(--accent); }
-
-    /* ── FORMACIÓ ── */
-    #formacio { background: var(--bg2); }
-    .timeline { position: relative; padding-left: 2rem; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 8px; bottom: 8px;
-      width: 1px;
-      background: var(--border);
-    }
-    .timeline-item {
-      position: relative;
-      padding-bottom: 2.5rem;
-    }
-    .timeline-item:last-child { padding-bottom: 0; }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -2.4rem; top: 8px;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 2px solid var(--bg2);
-    }
-    .timeline-date {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.25rem;
-    }
-    .timeline-title {
-      font-family: var(--mono);
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.15rem;
-    }
-    .timeline-where {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-    .timeline-desc {
-      font-size: 0.88rem;
-      color: var(--muted);
-      max-width: 560px;
-    }
-
-    /* ── CONTACTE ── */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .contact-item {
-      background: var(--bg);
-      padding: 2rem;
-      text-decoration: none;
-      transition: background 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-    }
-    .contact-item:hover { background: var(--bg3); }
-    .contact-icon {
-      font-family: var(--mono);
-      font-size: 1.4rem;
-      width: 2.5rem;
-      text-align: center;
-      flex-shrink: 0;
-    }
-    .contact-label {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.15rem;
-    }
-    .contact-value {
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      text-align: center;
-    }
-    footer p {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-    }
-    footer span { color: var(--accent); }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .fade-up { animation: fadeUp 0.6s ease both; }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .hero-stats { gap: 2rem; flex-wrap: wrap; }
-      .project-card { grid-template-columns: 1fr; }
-      .project-links { flex-direction: row; align-items: flex-start; }
-      .contact-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -437,45 +15,52 @@
   <nav>
     <div class="container">
       <a class="nav-logo" href="#hero">jordimarti<span>.dev</span></a>
-      <ul class="nav-links">
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projectes">Projectes</a></li>
-        <li><a href="#formacio">Formació</a></li>
-        <li><a href="#contacte">Contacte</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="#projectes" data-i18n="nav.projects">Projectes</a></li>
+          <li><a href="#formacio" data-i18n="nav.education">Formació</a></li>
+          <li><a href="#contacte" data-i18n="nav.contact">Contacte</a></li>
+        </ul>
+        <div class="lang-switcher">
+          <button class="lang-btn" data-lang="ca">CA</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
     <div class="container">
-      <p class="hero-label fade-up">Enginyer Industrial · Inventor · Developer</p>
+      <p class="hero-label fade-up" data-i18n="hero.label">Enginyer Industrial · Inventor · Developer</p>
       <h1 class="fade-up delay-1">
         Jordi Martí<br>
-        <span class="dim">— Enginyeria & Innovació</span>
+        <span class="dim" data-i18n="hero.subtitle">— Enginyeria &amp; Innovació</span>
       </h1>
-      <p class="hero-tagline fade-up delay-2">
-        Enginyer Industrial amb <strong>25 anys d'experiència en R+D i electrònica</strong>.
-        Inventor del Projecte Cangur, simulador mèdic per a nadons prematurs amb Model d'Utilitat registrat.
+      <p class="hero-tagline fade-up delay-2" data-i18n-html="hero.tagline">
+        Enginyer Industrial amb <strong>+20 anys d'experiència en R+D, electrònica i Sistemes de Gestió</strong>.
+        Inventor del Projecte Cangur, simulador biomimètic per a nadons prematurs amb Model d'Utilitat registrat.
         Developer Python especialitzat en automatització de processos.
       </p>
       <div class="hero-cta fade-up delay-3">
-        <a href="#projectes" class="btn btn-primary">Projecte Cangur →</a>
+        <a href="#projectes" class="btn btn-primary" data-i18n="hero.cta.project">Projecte Cangur →</a>
         <a href="https://github.com/jordi-marti-dev" target="_blank" class="btn btn-ghost">GitHub</a>
         <a href="https://es.linkedin.com/in/jmartiprats" target="_blank" class="btn btn-ghost">LinkedIn</a>
       </div>
       <div class="hero-stats fade-up delay-4">
         <div>
           <div class="stat-num">25+</div>
-          <div class="stat-label">Anys d'experiència tècnica</div>
+          <div class="stat-label" data-i18n="stat.years">Anys d'experiència tècnica</div>
         </div>
         <div>
           <div class="stat-num">2021</div>
-          <div class="stat-label">Model d'Utilitat registrat</div>
+          <div class="stat-label" data-i18n="stat.utility">Model d'Utilitat registrat</div>
         </div>
         <div>
           <div class="stat-num">Python</div>
-          <div class="stat-label">Llenguatge principal</div>
+          <div class="stat-label" data-i18n="stat.lang">Llenguatge principal</div>
         </div>
       </div>
     </div>
@@ -486,74 +71,73 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">01</span>
-        <h2>Skills &amp; Tecnologies</h2>
+        <h2 data-i18n="section.skills">Skills &amp; Tecnologies</h2>
         <div class="section-line"></div>
       </div>
       <div class="skills-grid">
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot"></span>Python · VBA</div>
-          <div class="skill-cat">Llenguatge principal</div>
+          <div class="skill-cat" data-i18n="skill.cat.lang">Llenguatge principal</div>
         </div>
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot"></span>Power BI · Excel Avançat</div>
-          <div class="skill-cat">Anàlisi de dades</div>
+          <div class="skill-cat" data-i18n="skill.cat.data">Anàlisi de dades</div>
         </div>
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot blue"></span>Git · GitHub</div>
-          <div class="skill-cat">Control de versions</div>
+          <div class="skill-cat" data-i18n="skill.cat.vcs">Control de versions</div>
         </div>
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot blue"></span>HTML · CSS · PHP</div>
-          <div class="skill-cat">Frontend bàsic</div>
+          <div class="skill-cat" data-i18n="skill.cat.frontend">Frontend bàsic</div>
         </div>
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot dim"></span>MySQL</div>
-          <div class="skill-cat">Bases de dades</div>
+          <div class="skill-cat" data-i18n="skill.cat.db">Bases de dades</div>
         </div>
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot dim"></span>Windows</div>
-          <div class="skill-cat">Entorn de treball</div>
+          <div class="skill-cat" data-i18n="skill.cat.env">Entorn de treball</div>
         </div>
-        <!-- Afegeix més skills aquí -->
       </div>
     </div>
   </section>
 
   <!-- PROJECTES -->
-
-<section id="projectes">
+  <section id="projectes">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">02</span>
-        <h2>Projectes</h2>
+        <h2 data-i18n="section.projects">Projectes</h2>
         <div class="section-line"></div>
       </div>
       <div class="projects-list">
 
         <div class="project-card">
           <div>
-            <div class="project-num">Projecte 01</div>
-            <div class="project-title">Projecte Cangur</div>
-            <p class="project-desc">
+            <div class="project-num" data-i18n="proj.01.num">Projecte 01</div>
+            <div class="project-title" data-i18n="proj.01.title">Projecte Cangur</div>
+            <p class="project-desc" data-i18n="proj.01.desc">
               Simulador del Mètode Cangur per millorar el benestar dels nadons prematurs en incubadora.
               El dispositiu reprodueix el moviment respiratori del tòrax dels pares i transmet sons personalitzats
               (batecs del cor, veu) a través d'un circuit d'aire tancat, sense cap component electrònic a prop del nadó.
               Registrat com a Model d'Utilitat a l'OEPM (ref. ES1260772 Y, 2021).
             </p>
             <div class="project-tags">
-              <span class="tag">Electrònica</span>
-              <span class="tag">Microcontroladors</span>
-              <span class="tag">Disseny Industrial</span>
-              <span class="tag">Innovació Mèdica</span>
-              <span class="tag">Model d'Utilitat</span>
+              <span class="tag" data-i18n="tag.electronics">Electrònica</span>
+              <span class="tag" data-i18n="tag.microcontrollers">Microcontroladors</span>
+              <span class="tag" data-i18n="tag.industrial.design">Disseny Industrial</span>
+              <span class="tag" data-i18n="tag.medical.innovation">Innovació Mèdica</span>
+              <span class="tag" data-i18n="tag.utility.model">Model d'Utilitat</span>
             </div>
           </div>
           <div class="project-links">
             <a href="https://github.com/jordi-marti-dev/Projecte-Cangur" target="_blank">GitHub →</a>
-            <a href="https://www.youtube.com/embed/HPeuQXKbIUE?si=1qsV4rQGPh3DMQZT" data-video-modal="true" class="video-link">Demo →</a>
+            <a href="https://www.youtube.com/embed/HPeuQXKbIUE?si=1qsV4rQGPh3DMQZT" data-video-modal="true" data-i18n="proj.01.demo">Demo →</a>
           </div>
         </div>
-      <!-- 
+
+      <!--
         <div class="project-card">
           <div>
             <div class="project-num">Projecte 02</div>
@@ -571,8 +155,7 @@
             <a href="https://github.com/jordi-marti-dev/projecte-2" target="_blank">GitHub →</a>
           </div>
         </div>
--->
-
+      -->
 
       </div>
     </div>
@@ -583,30 +166,30 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">03</span>
-        <h2>Formació</h2>
+        <h2 data-i18n="section.education">Formació</h2>
         <div class="section-line"></div>
       </div>
       <div class="timeline">
 
         <div class="timeline-item">
-          <div class="timeline-date">2025 – Actualitat</div>
-          <div class="timeline-title">Diploma d'Expertesa en Python per a Professionals: Nivell Inicial</div>
-          <div class="timeline-where">Universitat Politècnica de Catalunya (UPC) · 9 crèdits ECTS</div>
-          <p class="timeline-desc">Formació especialitzada en Python aplicat a l'automatització de processos, scripting i anàlisi de dades.</p>
+          <div class="timeline-date" data-i18n="edu.1.date">2025 – Actualitat</div>
+          <div class="timeline-title" data-i18n="edu.1.title">Diploma d'Expertesa en Python per a Professionals: Nivell Inicial</div>
+          <div class="timeline-where" data-i18n="edu.1.where">Universitat Politècnica de Catalunya (UPC) · 9 crèdits ECTS</div>
+          <p class="timeline-desc" data-i18n="edu.1.desc">Formació especialitzada en Python aplicat a l'automatització de processos, scripting i anàlisi de dades.</p>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-date">2003</div>
-          <div class="timeline-title">Postgrau en Desenvolupament de Projectes d'Enginyeria de Producte</div>
-          <div class="timeline-where">UPC – Fundació CIM · Barcelona Tech</div>
-          <p class="timeline-desc">Gestió i desenvolupament de projectes tècnics orientats a producte industrial.</p>
+          <div class="timeline-title" data-i18n="edu.2.title">Postgrau en Desenvolupament de Projectes d'Enginyeria de Producte</div>
+          <div class="timeline-where" data-i18n="edu.2.where">UPC – Fundació CIM · Barcelona Tech</div>
+          <p class="timeline-desc" data-i18n="edu.2.desc">Gestió i desenvolupament de projectes tècnics orientats a producte industrial.</p>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-date">1991 – 1997</div>
-          <div class="timeline-title">Enginyeria Industrial – Especialitat Electricitat i Electrònica</div>
-          <div class="timeline-where">UPC – ETSEIB · Barcelona</div>
-          <p class="timeline-desc">Titulació de base amb especialització en circuits electrònics, sistemes de control i disseny de producte.</p>
+          <div class="timeline-title" data-i18n="edu.3.title">Enginyeria Industrial – Especialitat Electricitat i Electrònica</div>
+          <div class="timeline-where" data-i18n="edu.3.where">UPC – ETSEIB · Barcelona</div>
+          <p class="timeline-desc" data-i18n="edu.3.desc">Titulació de base amb especialització en circuits electrònics, sistemes de control i disseny de producte.</p>
         </div>
 
       </div>
@@ -618,7 +201,7 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">04</span>
-        <h2>Contacte</h2>
+        <h2 data-i18n="section.contact">Contacte</h2>
         <div class="section-line"></div>
       </div>
       <div class="contact-grid">
@@ -647,58 +230,170 @@
           <div class="contact-icon">▶</div>
           <div>
             <div class="contact-label">YouTube</div>
-            <div class="contact-value">Demos dels projectes</div>
+            <div class="contact-value" data-i18n="contact.yt.value">Demos dels projectes</div>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Modal for YouTube video -->
-  <div id="videoModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);">
-    <div style="position: relative; max-width: 800px; margin: 5% auto; padding: 0;">
-      <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 20px; top: 10px; z-index: 1001;">&times;</span>
-      <iframe id="videoPlayer" width="100%" height="450" style="border: none;" allowfullscreen></iframe>
+  <!-- Video Modal -->
+  <div id="videoModal" class="modal">
+    <div class="modal-container">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="video-wrapper">
+        <iframe id="videoPlayer" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 
   <script>
-    const videoLinks = document.querySelectorAll('[data-video-modal="true"]');
+    const translations = {
+      ca: {
+        'nav.skills':           'Skills',
+        'nav.projects':         'Projectes',
+        'nav.education':        'Formació',
+        'nav.contact':          'Contacte',
+        'hero.label':           'Enginyer Industrial · Inventor · Developer',
+        'hero.subtitle':        '— Enginyeria & Innovació',
+        'hero.tagline':         `Enginyer Industrial amb <strong>25 anys d'experiència en R+D i electrònica</strong>. Inventor del Projecte Cangur, simulador mèdic per a nadons prematurs amb Model d'Utilitat registrat. Developer Python especialitzat en automatització de processos.`,
+        'hero.cta.project':     'Projecte Cangur →',
+        'stat.years':           "Anys d'experiència tècnica",
+        'stat.utility':         "Model d'Utilitat registrat",
+        'stat.lang':            'Llenguatge principal',
+        'section.skills':       'Skills & Tecnologies',
+        'skill.cat.lang':       'Llenguatge principal',
+        'skill.cat.data':       'Anàlisi de dades',
+        'skill.cat.vcs':        'Control de versions',
+        'skill.cat.frontend':   'Frontend bàsic',
+        'skill.cat.db':         'Bases de dades',
+        'skill.cat.env':        'Entorn de treball',
+        'section.projects':     'Projectes',
+        'proj.01.num':          'Projecte 01',
+        'proj.01.title':        'Projecte Cangur',
+        'proj.01.desc':         "Simulador del Mètode Cangur per millorar el benestar dels nadons prematurs en incubadora. El dispositiu reprodueix el moviment respiratori del tòrax dels pares i transmet sons personalitzats (batecs del cor, veu) a través d'un circuit d'aire tancat, sense cap component electrònic a prop del nadó. Registrat com a Model d'Utilitat a l'OEPM (ref. ES1260772 Y, 2021).",
+        'proj.01.demo':         'Demo →',
+        'tag.electronics':      'Electrònica',
+        'tag.microcontrollers': 'Microcontroladors',
+        'tag.industrial.design':'Disseny Industrial',
+        'tag.medical.innovation':'Innovació Mèdica',
+        'tag.utility.model':    "Model d'Utilitat",
+        'section.education':    'Formació',
+        'edu.1.date':           '2025 – Actualitat',
+        'edu.1.title':          "Diploma d'Expertesa en Python per a Professionals: Nivell Inicial",
+        'edu.1.where':          'Universitat Politècnica de Catalunya (UPC) · 9 crèdits ECTS',
+        'edu.1.desc':           "Formació especialitzada en Python aplicat a l'automatització de processos, scripting i anàlisi de dades.",
+        'edu.2.title':          "Postgrau en Desenvolupament de Projectes d'Enginyeria de Producte",
+        'edu.2.where':          'UPC – Fundació CIM · Barcelona Tech',
+        'edu.2.desc':           'Gestió i desenvolupament de projectes tècnics orientats a producte industrial.',
+        'edu.3.title':          'Enginyeria Industrial – Especialitat Electricitat i Electrònica',
+        'edu.3.where':          'UPC – ETSEIB · Barcelona',
+        'edu.3.desc':           'Titulació de base amb especialització en circuits electrònics, sistemes de control i disseny de producte.',
+        'section.contact':      'Contacte',
+        'contact.yt.value':     'Demos dels projectes',
+        'footer.built':         'Construït amb HTML/CSS · Hostatjat a GitHub Pages',
+      },
+      en: {
+        'nav.skills':           'Skills',
+        'nav.projects':         'Projects',
+        'nav.education':        'Education',
+        'nav.contact':          'Contact',
+        'hero.label':           'Industrial Engineer · Inventor · Developer',
+        'hero.subtitle':        '— Engineering & Innovation',
+        'hero.tagline':         'Industrial Engineer with <strong>25 years of experience in R&amp;D and electronics</strong>. Inventor of the Cangur Project, a medical simulator for premature infants with a registered Utility Model. Python Developer specializing in process automation.',
+        'hero.cta.project':     'Cangur Project →',
+        'stat.years':           'Years of technical experience',
+        'stat.utility':         'Registered Utility Model',
+        'stat.lang':            'Main language',
+        'section.skills':       'Skills & Technologies',
+        'skill.cat.lang':       'Main language',
+        'skill.cat.data':       'Data analysis',
+        'skill.cat.vcs':        'Version control',
+        'skill.cat.frontend':   'Basic frontend',
+        'skill.cat.db':         'Databases',
+        'skill.cat.env':        'Work environment',
+        'section.projects':     'Projects',
+        'proj.01.num':          'Project 01',
+        'proj.01.title':        'Cangur Project',
+        'proj.01.desc':         "Simulator of the Kangaroo Method to improve the well-being of premature infants in incubators. The device reproduces the respiratory movement of the parents' chest and transmits personalized sounds (heartbeats, voice) through a closed air circuit, with no electronic components near the baby. Registered as a Utility Model at OEPM (ref. ES1260772 Y, 2021).",
+        'proj.01.demo':         'Demo →',
+        'tag.electronics':      'Electronics',
+        'tag.microcontrollers': 'Microcontrollers',
+        'tag.industrial.design':'Industrial Design',
+        'tag.medical.innovation':'Medical Innovation',
+        'tag.utility.model':    'Utility Model',
+        'section.education':    'Education',
+        'edu.1.date':           '2025 – Present',
+        'edu.1.title':          'Expert Diploma in Python for Professionals: Initial Level',
+        'edu.1.where':          'Polytechnic University of Catalonia (UPC) · 9 ECTS credits',
+        'edu.1.desc':           'Specialized training in Python applied to process automation, scripting and data analysis.',
+        'edu.2.title':          'Postgraduate in Product Engineering Project Development',
+        'edu.2.where':          'UPC – Fundació CIM · Barcelona Tech',
+        'edu.2.desc':           'Management and development of technical projects oriented to industrial product.',
+        'edu.3.title':          'Industrial Engineering – Electricity and Electronics Specialty',
+        'edu.3.where':          'UPC – ETSEIB · Barcelona',
+        'edu.3.desc':           'Core degree with specialization in electronic circuits, control systems and product design.',
+        'section.contact':      'Contact',
+        'contact.yt.value':     'Project demos',
+        'footer.built':         'Built with HTML/CSS · Hosted on GitHub Pages',
+      }
+    };
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const val = translations[lang][el.dataset.i18n];
+        if (val !== undefined) el.textContent = val;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const val = translations[lang][el.dataset.i18nHtml];
+        if (val !== undefined) el.innerHTML = val;
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      localStorage.setItem('lang', lang);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    // Video modal
     const modal = document.getElementById('videoModal');
     const videoPlayer = document.getElementById('videoPlayer');
-    const closeBtn = document.querySelector('.close');
+    const modalClose = document.getElementById('modalClose');
 
-    videoLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
+    document.querySelectorAll('[data-video-modal="true"]').forEach(link => {
+      link.addEventListener('click', e => {
         e.preventDefault();
         videoPlayer.src = link.href.split('?')[0] + '?autoplay=1&rel=0';
-        modal.style.display = 'block';
+        modal.classList.add('open');
       });
     });
 
-    closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
+    function closeModal() {
+      modal.classList.remove('open');
       videoPlayer.src = '';
-    });
+    }
 
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-        videoPlayer.src = '';
-      }
-    });
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // Init: llegeix preferència guardada o usa català per defecte
+    setLang(localStorage.getItem('lang') || 'ca');
   </script>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
       <p>
-        Jordi Martí · <span>jordi-marti-dev</span> ·
-        Construït amb HTML/CSS · Hostatjat a GitHub Pages
+        Jordi Martí · <span class="accent">jordi-marti-dev</span> ·
+        <span data-i18n="footer.built">Construït amb HTML/CSS · Hostatjat a GitHub Pages</span>
       </p>
     </div>
   </footer>
 
-
-
-</body></html>
+</body>
+</html>
