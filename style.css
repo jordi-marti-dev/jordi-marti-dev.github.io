@@ -102,7 +102,9 @@ nav .container {
 
 /* ── HERO ── */
 #hero {
-  min-height: 100vh;
+  min-height: auto;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
   display: flex;
   align-items: center;
   padding-top: 5rem;
@@ -135,7 +137,7 @@ nav .container {
 }
 h1 {
   font-family: var(--mono);
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(2.2rem, 5vw, 3rem);
   font-weight: 600;
   line-height: 1.1;
   margin-bottom: 1.5rem;
@@ -200,7 +202,7 @@ h1 .dim { color: var(--muted); font-weight: 400; }
 }
 
 /* ── SECTIONS ── */
-section { padding: 6rem 0; }
+section { padding: 4rem 0 5rem; }
 .section-header {
   display: flex;
   align-items: center;
@@ -270,36 +272,34 @@ h2 {
   border: 1px solid var(--border);
   border-radius: 4px;
   padding: 2rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
   transition: border-color 0.2s, transform 0.2s;
-  overflow: hidden;
 }
 .project-card:hover {
   border-color: var(--accent);
   transform: translateX(4px);
 }
 .project-img-wrap {
-  margin: -2rem -2rem 1.75rem;
-  height: 210px;
+  width: 130px;
+  height: 200px;
   overflow: hidden;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  margin-top: 0.75rem;
 }
 .project-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center 20%;
   display: block;
   filter: grayscale(60%) brightness(0.72);
   transition: filter 0.4s;
 }
 .project-card:hover .project-img {
   filter: grayscale(20%) brightness(0.85);
-}
-.project-body {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1rem;
 }
 .project-num {
   font-family: var(--mono);
@@ -430,6 +430,7 @@ h2 {
   width: 2.5rem;
   text-align: center;
   flex-shrink: 0;
+  color: #fff; /* color blanc per que es vegi millor */
 }
 .contact-label {
   font-family: var(--mono);
@@ -518,7 +519,8 @@ footer .accent { color: var(--accent); }
 @media (max-width: 640px) {
   .nav-links { display: none; }
   .hero-stats { gap: 2rem; flex-wrap: wrap; }
-  .project-body { grid-template-columns: 1fr; }
+  .project-card { grid-template-columns: 1fr; }
+  .project-img-wrap { width: 100%; height: 180px; margin-top: 1rem; }
   .project-links { flex-direction: row; align-items: flex-start; }
   .contact-grid { grid-template-columns: 1fr; }
 }

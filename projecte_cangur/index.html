@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projecte Cangur · Jordi Martí</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* ── Hero del projecte ── */
+    #hero { min-height: 80vh; padding-bottom: 4rem; }
+
+    .project-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .project-hero-img {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .project-hero-img::after {
+      content: 'render 3D · sistema complet';
+      position: absolute;
+      bottom: 0.6rem;
+      right: 0.8rem;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: #bbb;
+      letter-spacing: 0.08em;
+    }
+
+    .project-hero-img img { width: 100%; height: auto; display: block; }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .stats-bar-item {
+      background: var(--bg2);
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+
+    /* ── El Problema ── */
+    .problem-text {
+      max-width: 640px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .problem-text p + p { margin-top: 1rem; }
+    .problem-text strong { color: var(--text); font-weight: 500; }
+
+    .problem-highlight {
+      border-left: 2px solid var(--accent);
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: var(--bg2);
+      border-radius: 0 4px 4px 0;
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── Vídeo ── */
+    #video { background: var(--bg2); }
+
+    /* ── Feature cards ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .feature-card {
+      background: var(--bg2);
+      padding: 1.75rem;
+      transition: background 0.2s;
+    }
+
+    .feature-card:hover { background: var(--bg3); }
+
+    .feature-icon {
+      font-family: var(--mono);
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .feature-title {
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── Flux visual ── */
+    .flux {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1.5rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg2);
+      flex-wrap: wrap;
+    }
+
+    .flux-step { display: flex; flex-direction: column; align-items: center; }
+
+    .flux-node {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text);
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      background: var(--bg3);
+      white-space: nowrap;
+    }
+
+    .flux-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+    }
+
+    .flux-arrow {
+      color: var(--accent);
+      font-size: 1rem;
+      flex-shrink: 0;
+      padding-top: 0.4rem;
+    }
+
+    /* ── Validació ── */
+    #validacio { background: var(--bg2); }
+
+    .validation-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .validation-item {
+      background: var(--bg2);
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      transition: background 0.2s;
+    }
+
+    .validation-item:hover { background: var(--bg3); }
+
+    .validation-year {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      padding-top: 0.2rem;
+      min-width: 3rem;
+    }
+
+    .validation-title {
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .validation-desc { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── Documentació ── */
+    .doc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .doc-item {
+      background: var(--bg2);
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+      gap: 1rem;
+    }
+
+    .doc-item:hover { background: var(--bg3); }
+
+    .doc-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.2rem;
+    }
+
+    .doc-title { font-size: 0.88rem; color: var(--text); }
+
+    .doc-arrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      transition: color 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .doc-item:hover .doc-arrow { color: var(--accent); transform: translateX(3px); }
+
+    /* ── Footer ── */
+    .project-footer-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .back-link {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .project-hero-grid { grid-template-columns: 1fr; }
+      .project-hero-img { order: -1; padding: 1rem; }
+      .stats-bar { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .flux { padding: 1rem; }
+      .validation-item { flex-direction: column; gap: 0.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <a class="nav-logo" href="../">jordimarti<span>.dev</span></a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../#skills"    data-i18n="nav.skills">Skills</a></li>
+          <li><a href="../#projectes" data-i18n="nav.projects">Projectes</a></li>
+          <li><a href="../#formacio"  data-i18n="nav.education">Formació</a></li>
+          <li><a href="../#contacte"  data-i18n="nav.contact">Contacte</a></li>
+        </ul>
+        <div class="lang-switcher">
+          <button class="lang-btn" data-lang="ca">CA</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="project-hero-grid">
+
+        <div>
+          <p class="hero-label fade-up" data-i18n="hero.label">Projecte Cangur · ES1260772Y · OEPM 2021</p>
+          <h1 class="fade-up delay-1" data-i18n="hero.title">Un abraç biomimètic per als nadons prematurs</h1>
+          <p class="hero-tagline fade-up delay-2" data-i18n="hero.tagline">
+            Simulador del mètode cangur que replica la respiració i els batecs dels pares
+            dins la incubadora, sense cap component electrònic prop del nadó.
+          </p>
+          <div class="hero-cta fade-up delay-3">
+            <a href="#video" class="btn btn-primary" data-i18n="hero.cta.video">Veure el vídeo ↓</a>
+            <a href="https://github.com/jordi-marti-dev/Projecte-Cangur" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-hero-img fade-up delay-2">
+          <img src="../img/cangur-render.jpg" alt="Render 3D del Projecte Cangur: unitat de control, tub i matalàs dins incubadora">
+        </div>
+
+      </div>
+
+      <div class="stats-bar fade-up delay-4">
+        <div class="stats-bar-item">
+          <div class="stat-num">2021</div>
+          <div class="stat-label" data-i18n="stat.patent">Model d'Utilitat registrat (OEPM)</div>
+        </div>
+        <div class="stats-bar-item">
+          <div class="stat-num">4–16%</div>
+          <div class="stat-label" data-i18n="stat.prematurity">Prematuritat global (OMS)</div>
+        </div>
+        <div class="stats-bar-item">
+          <div class="stat-num">0</div>
+          <div class="stat-label" data-i18n="stat.electronics">Components electrònics prop del nadó</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 · EL PROBLEMA -->
+  <section id="problema">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">01</span>
+        <h2 data-i18n="s1.title">El Problema</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="problem-text">
+        <p data-i18n-html="s1.p1">
+          Cada any, uns <strong>15 milions de nadons neixen prematurs</strong> al món. A Espanya,
+          la prematuritat afecta entre el 7 i el 9% dels naixements. Aquests nadons necessiten
+          incubadora, separats dels seus pares en el moment més crític del seu desenvolupament.
+        </p>
+        <div class="problem-highlight" data-i18n="s1.highlight">
+          El mètode cangur —contacte pell amb pell— millora la termorregulació, la freqüència
+          cardíaca, el son i el vincle emocional. El problema: no sempre és possible mantenir
+          el contacte permanent.
+        </div>
+        <p data-i18n-html="s1.p2">
+          El Projecte Cangur replica els estímuls biomimètics —moviment respiratori i sons
+          parentals— <strong>dins la incubadora</strong>, sense separar el nadó de l'entorn
+          clínic controlat i sense cap risc elèctric.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · VÍDEO -->
+  <section id="video">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">02</span>
+        <h2 data-i18n="s2.title">Vídeo del Projecte</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/HPeuQXKbIUE?rel=0"
+          title="Projecte Cangur — vídeo demostratiu"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · LA SOLUCIÓ -->
+  <section id="solucio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">03</span>
+        <h2 data-i18n="s3.title">La Solució</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">⊘</span>
+          <div class="feature-title" data-i18n="feat1.title">0 electrònica prop del nadó</div>
+          <p class="feature-desc" data-i18n="feat1.desc">Un circuit tancat d'aire porta el moviment i el so fins al matalàs pneumàtic dins la incubadora. Cap component electrònic creua la barrera de seguretat neonatal.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">∿</span>
+          <div class="feature-title" data-i18n="feat2.title">Biomimètic</div>
+          <p class="feature-desc" data-i18n="feat2.desc">Reprodueix el moviment respiratori dels pares a 12–20 cicles per minut amb precisió fisiològica. Transmet sons reals: veu, batecs del cor.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">◇</span>
+          <div class="feature-title" data-i18n="feat3.title">Baix cost</div>
+          <p class="feature-desc" data-i18n="feat3.desc">Materials i components estàndards accessibles. Sense peces especialitzades ni consumibles. Dissenyat per a entorns hospitalaris amb recursos limitats.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">⊕</span>
+          <div class="feature-title" data-i18n="feat4.title">Personalitzable</div>
+          <p class="feature-desc" data-i18n="feat4.desc">Ritme respiratori, sons i intensitat ajustables per a cada nadó i família. La unitat de control permet programar perfils personalitzats.</p>
+        </div>
+      </div>
+
+      <div class="flux">
+        <div class="flux-step">
+          <span class="flux-node" data-i18n="flux.unit">Unitat de control</span>
+          <span class="flux-label" data-i18n="flux.unit.sub">Microcontrolador + actuador</span>
+        </div>
+        <span class="flux-arrow">→</span>
+        <div class="flux-step">
+          <span class="flux-node" data-i18n="flux.tube">Circuit d'aire tancat</span>
+          <span class="flux-label" data-i18n="flux.tube.sub">Tub flexible + so</span>
+        </div>
+        <span class="flux-arrow">→</span>
+        <div class="flux-step">
+          <span class="flux-node" data-i18n="flux.mat">Matalàs pneumàtic</span>
+          <span class="flux-label" data-i18n="flux.mat.sub">Dins la incubadora</span>
+        </div>
+        <span class="flux-arrow">→</span>
+        <div class="flux-step">
+          <span class="flux-node" data-i18n="flux.baby">Nadó</span>
+          <span class="flux-label" data-i18n="flux.baby.sub">Sense risc elèctric</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · VALIDACIÓ -->
+  <section id="validacio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">04</span>
+        <h2 data-i18n="s4.title">Validació</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="validation-list">
+        <div class="validation-item">
+          <div class="validation-year">2021</div>
+          <div>
+            <div class="validation-title" data-i18n="val1.title">Model d'Utilitat ES 1260772 Y</div>
+            <div class="validation-desc" data-i18n="val1.desc">Oficina Espanyola de Patents i Marques (OEPM) · Propietat industrial registrada</div>
+          </div>
+        </div>
+        <div class="validation-item">
+          <div class="validation-year">2023</div>
+          <div>
+            <div class="validation-title" data-i18n="val2.title">Prototip funcional construït</div>
+            <div class="validation-desc" data-i18n="val2.desc">Ateneu de Fabricació de Les Corts · Barcelona · Fabricació digital i electrònica</div>
+          </div>
+        </div>
+        <div class="validation-item">
+          <div class="validation-year">2015</div>
+          <div>
+            <div class="validation-title" data-i18n="val3.title">Base acadèmica · Chen et al.</div>
+            <div class="validation-desc" data-i18n="val3.desc">IEEE Journal of Biomedical and Health Informatics · TU/e Eindhoven · Efectes del moviment mecànic en nadons prematurs</div>
+          </div>
+        </div>
+        <div class="validation-item">
+          <div class="validation-year">2026</div>
+          <div>
+            <div class="validation-title" data-i18n="val4.title">Candidat als Premis Fundació Caixa Enginyers</div>
+            <div class="validation-desc" data-i18n="val4.desc">Premi Isabel P. Trabal · Innovació amb impacte social</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · DOCUMENTACIÓ -->
+  <section id="documentacio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">05</span>
+        <h2 data-i18n="s5.title">Documentació</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="doc-list">
+        <!-- TODO: substituir href="#" pel path real del PDF -->
+        <a href="#" class="doc-item">
+          <div>
+            <div class="doc-label" data-i18n="doc.type.pdf">PDF · 2024</div>
+            <div class="doc-title" data-i18n="doc1.title">Presentació del Projecte Cangur</div>
+          </div>
+          <span class="doc-arrow">→</span>
+        </a>
+        <a href="#" class="doc-item">
+          <div>
+            <div class="doc-label" data-i18n="doc.type.bopi">BOPI · Propietat Industrial</div>
+            <div class="doc-title" data-i18n="doc2.title">Model d'Utilitat ES 1260772 Y (OEPM)</div>
+          </div>
+          <span class="doc-arrow">→</span>
+        </a>
+        <a href="https://ieeexplore.ieee.org/document/7105920" target="_blank" rel="noopener" class="doc-item">
+          <div>
+            <div class="doc-label" data-i18n="doc.type.ieee">IEEE · Article científic · 2015</div>
+            <div class="doc-title" data-i18n="doc3.title">Chen et al. — IEEE J. Biomed. Health Inform. (TU/e Eindhoven)</div>
+          </div>
+          <span class="doc-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="project-footer-nav">
+        <a href="../" class="back-link" data-i18n="footer.back">← Tornar al portfolio</a>
+        <p>
+          Jordi Martí · <span class="accent">jordi-marti-dev</span> ·
+          <span data-i18n="footer.built">Construït amb HTML/CSS · Hostatjat a GitHub Pages</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      ca: {
+        'nav.skills':       'Skills',
+        'nav.projects':     'Projectes',
+        'nav.education':    'Formació',
+        'nav.contact':      'Contacte',
+        'hero.label':       "Projecte Cangur · ES1260772Y · OEPM 2021",
+        'hero.title':       'Un abraç biomimètic per als nadons prematurs',
+        'hero.tagline':     "Simulador del mètode cangur que replica la respiració i els batecs dels pares dins la incubadora, sense cap component electrònic prop del nadó.",
+        'hero.cta.video':   'Veure el vídeo ↓',
+        'stat.patent':      "Model d'Utilitat registrat (OEPM)",
+        'stat.prematurity': 'Prematuritat global (OMS)',
+        'stat.electronics': 'Components electrònics prop del nadó',
+        's1.title':         'El Problema',
+        's1.p1':            `Cada any, uns <strong>15 milions de nadons neixen prematurs</strong> al món. A Espanya, la prematuritat afecta entre el 7 i el 9% dels naixements. Aquests nadons necessiten incubadora, separats dels seus pares en el moment més crític del seu desenvolupament.`,
+        's1.highlight':     "El mètode cangur —contacte pell amb pell— millora la termorregulació, la freqüència cardíaca, el son i el vincle emocional. El problema: no sempre és possible mantenir el contacte permanent.",
+        's1.p2':            `El Projecte Cangur replica els estímuls biomimètics —moviment respiratori i sons parentals— <strong>dins la incubadora</strong>, sense separar el nadó de l'entorn clínic controlat i sense cap risc elèctric.`,
+        's2.title':         'Vídeo del Projecte',
+        's3.title':         'La Solució',
+        'feat1.title':      '0 electrònica prop del nadó',
+        'feat1.desc':       "Un circuit tancat d'aire porta el moviment i el so fins al matalàs pneumàtic dins la incubadora. Cap component electrònic creua la barrera de seguretat neonatal.",
+        'feat2.title':      'Biomimètic',
+        'feat2.desc':       "Reprodueix el moviment respiratori dels pares a 12–20 cicles per minut amb precisió fisiològica. Transmet sons reals: veu, batecs del cor.",
+        'feat3.title':      'Baix cost',
+        'feat3.desc':       "Materials i components estàndards accessibles. Sense peces especialitzades ni consumibles. Dissenyat per a entorns hospitalaris amb recursos limitats.",
+        'feat4.title':      'Personalitzable',
+        'feat4.desc':       "Ritme respiratori, sons i intensitat ajustables per a cada nadó i família. La unitat de control permet programar perfils personalitzats.",
+        'flux.unit':        'Unitat de control',
+        'flux.unit.sub':    'Microcontrolador + actuador',
+        'flux.tube':        "Circuit d'aire tancat",
+        'flux.tube.sub':    'Tub flexible + so',
+        'flux.mat':         'Matalàs pneumàtic',
+        'flux.mat.sub':     'Dins la incubadora',
+        'flux.baby':        'Nadó',
+        'flux.baby.sub':    'Sense risc elèctric',
+        's4.title':         'Validació',
+        'val1.title':       "Model d'Utilitat ES 1260772 Y",
+        'val1.desc':        "Oficina Espanyola de Patents i Marques (OEPM) · Propietat industrial registrada",
+        'val2.title':       'Prototip funcional construït',
+        'val2.desc':        "Ateneu de Fabricació de Les Corts · Barcelona · Fabricació digital i electrònica",
+        'val3.title':       'Base acadèmica · Chen et al.',
+        'val3.desc':        "IEEE Journal of Biomedical and Health Informatics · TU/e Eindhoven · Efectes del moviment mecànic en nadons prematurs",
+        'val4.title':       'Candidat als Premis Fundació Caixa Enginyers',
+        'val4.desc':        "Premi Isabel P. Trabal · Innovació amb impacte social",
+        's5.title':         'Documentació',
+        'doc.type.pdf':     'PDF · 2024',
+        'doc.type.bopi':    'BOPI · Propietat Industrial',
+        'doc.type.ieee':    'IEEE · Article científic · 2015',
+        'doc1.title':       'Presentació del Projecte Cangur',
+        'doc2.title':       "Model d'Utilitat ES 1260772 Y (OEPM)",
+        'doc3.title':       'Chen et al. — IEEE J. Biomed. Health Inform. (TU/e Eindhoven)',
+        'footer.back':      '← Tornar al portfolio',
+        'footer.built':     'Construït amb HTML/CSS · Hostatjat a GitHub Pages',
+      },
+      en: {
+        'nav.skills':       'Skills',
+        'nav.projects':     'Projects',
+        'nav.education':    'Education',
+        'nav.contact':      'Contact',
+        'hero.label':       'Cangur Project · ES1260772Y · OEPM 2021',
+        'hero.title':       'A biomimetic embrace for premature infants',
+        'hero.tagline':     "Kangaroo method simulator that replicates the breathing and heartbeat of parents inside the incubator, with no electronic components near the baby.",
+        'hero.cta.video':   'Watch the video ↓',
+        'stat.patent':      'Registered Utility Model (OEPM)',
+        'stat.prematurity': 'Global prematurity rate (WHO)',
+        'stat.electronics': 'Electronic components near the baby',
+        's1.title':         'The Problem',
+        's1.p1':            'Each year, approximately <strong>15 million babies are born prematurely</strong> worldwide. In Spain, prematurity affects between 7 and 9% of births. These babies require incubators, separated from their parents at the most critical stage of their development.',
+        's1.highlight':     "The kangaroo method — skin-to-skin contact — significantly improves thermoregulation, heart rate, sleep and emotional bonding. The problem: constant contact is not always possible.",
+        's1.p2':            'The Cangur Project replicates the biomimetic stimuli — respiratory movement and parental sounds — <strong>inside the incubator</strong>, without removing the baby from the controlled clinical environment and with no electrical risk.',
+        's2.title':         'Project Video',
+        's3.title':         'The Solution',
+        'feat1.title':      '0 electronics near the baby',
+        'feat1.desc':       "A closed air circuit delivers movement and sound to the pneumatic mattress inside the incubator. No electronic component crosses the neonatal safety barrier.",
+        'feat2.title':      'Biomimetic',
+        'feat2.desc':       "Replicates the parents' respiratory movement at 12–20 cycles per minute with physiological precision. Transmits real sounds: voice, heartbeat.",
+        'feat3.title':      'Low cost',
+        'feat3.desc':       "Standard, accessible materials and components. No specialized parts or consumables. Designed for hospital settings with limited resources.",
+        'feat4.title':      'Customizable',
+        'feat4.desc':       "Breathing rate, sounds and intensity adjustable for each baby and family. The control unit allows programming personalized profiles.",
+        'flux.unit':        'Control unit',
+        'flux.unit.sub':    'Microcontroller + actuator',
+        'flux.tube':        'Closed air circuit',
+        'flux.tube.sub':    'Flexible tube + sound',
+        'flux.mat':         'Pneumatic mattress',
+        'flux.mat.sub':     'Inside the incubator',
+        'flux.baby':        'Baby',
+        'flux.baby.sub':    'No electrical risk',
+        's4.title':         'Validation',
+        'val1.title':       'Utility Model ES 1260772 Y',
+        'val1.desc':        'Spanish Patent and Trademark Office (OEPM) · Registered industrial property',
+        'val2.title':       'Functional prototype built',
+        'val2.desc':        "Ateneu de Fabricació de Les Corts · Barcelona · Digital fabrication and electronics",
+        'val3.title':       'Academic basis · Chen et al.',
+        'val3.desc':        "IEEE Journal of Biomedical and Health Informatics · TU/e Eindhoven · Effects of mechanical movement on premature infants",
+        'val4.title':       'Candidate for Fundació Caixa Enginyers Awards',
+        'val4.desc':        'Isabel P. Trabal Prize · Innovation with social impact',
+        's5.title':         'Documentation',
+        'doc.type.pdf':     'PDF · 2024',
+        'doc.type.bopi':    'BOPI · Industrial Property',
+        'doc.type.ieee':    'IEEE · Scientific article · 2015',
+        'doc1.title':       'Cangur Project Presentation',
+        'doc2.title':       'Utility Model ES 1260772 Y (OEPM)',
+        'doc3.title':       'Chen et al. — IEEE J. Biomed. Health Inform. (TU/e Eindhoven)',
+        'footer.back':      '← Back to portfolio',
+        'footer.built':     'Built with HTML/CSS · Hosted on GitHub Pages',
+      }
+    };
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const val = translations[lang][el.dataset.i18n];
+        if (val !== undefined) el.textContent = val;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const val = translations[lang][el.dataset.i18nHtml];
+        if (val !== undefined) el.innerHTML = val;
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      localStorage.setItem('lang', lang);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    setLang(localStorage.getItem('lang') || 'ca');
+  </script>
+
+</body>
+</html>
