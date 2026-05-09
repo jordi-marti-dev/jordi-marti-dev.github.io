@@ -257,7 +257,7 @@
       </div>
       <div class="hero-stats fade-up delay-4">
         <div>
-          <div class="stat-num">25+</div>
+          <div class="stat-num">20+</div>
           <div class="stat-label" data-i18n="stat.years">Anys d'experiència tècnica</div>
         </div>
         <div>
@@ -317,31 +317,35 @@
           </div>
         </a>
 
-        <a href="https://github.com/jordi-marti-dev" target="_blank" rel="noopener" class="proj-card">
+        <a href="https://github.com/jordi-marti-dev/QR_generador" target="_blank" rel="noopener" class="proj-card">
           <div class="proj-thumb">
-            <div class="proj-thumb-placeholder">captura · demo</div>
+            <img src="img/captura_projecte_qr.JPG"
+                 alt="Captura del Generador QR en Lot"
+                 loading="lazy">
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-num">Projecte 02</span>
-              <span class="proj-badge">Python</span>
+              <span class="proj-num" data-i18n="proj.02.num">Projecte 02</span>
+              <span class="proj-badge">Python · PySide6</span>
             </div>
-            <h3 class="proj-title">Nom del projecte Python</h3>
-            <p class="proj-desc">Descripció breu del projecte. Quin problema resol i quina tecnologia utilitza.</p>
+            <h3 class="proj-title" data-i18n="proj.02.title">Generador QR en Lot</h3>
+            <p class="proj-desc" data-i18n="proj.02.desc">Eina Python per generar codis QR en lots a partir d'un fitxer JSON de configuració. Interfície gràfica (PySide6) i CLI. Sense serveis externs, sense caducitat d'enllaços ni rastrejament.</p>
             <div class="proj-tags">
               <span class="proj-tag">Python</span>
-              <span class="proj-tag">Automatització</span>
+              <span class="proj-tag">PySide6</span>
+              <span class="proj-tag">JSON</span>
+              <span class="proj-tag">CLI</span>
             </div>
             <div class="proj-footer">
               <div class="proj-status">
                 <span class="status-dot live"></span>
-                Publicat
+                <span data-i18n="proj.02.status">Publicat · Codi obert</span>
               </div>
-              <span class="proj-link">GitHub →</span>
+              <span class="proj-arrow" data-i18n="proj.02.cta">GitHub →</span>
             </div>
           </div>
         </a>
-
+<!--
         <a href="https://github.com/jordi-marti-dev" target="_blank" rel="noopener" class="proj-card">
           <div class="proj-thumb">
             <div class="proj-thumb-placeholder">captura · demo</div>
@@ -366,7 +370,7 @@
             </div>
           </div>
         </a>
-
+-->
       </div>
     </div>
   </section>
@@ -524,6 +528,11 @@
         'proj.01.desc':          `Simulador biomimètic del mètode cangur per millorar el benestar dels nadons prematurs en incubadora. Replica la respiració i els batecs dels pares a través d'un circuit tancat d'aire, sense cap component electrònic prop del nadó.`,
         'proj.01.status':        'Prototip funcional · Cercant partners industrials',
         'proj.01.cta':           'Veure projecte →',
+        'proj.02.num':           'Projecte 02',
+        'proj.02.title':         'Generador QR en Lot',
+        'proj.02.desc':          "Eina Python per generar codis QR en lots a partir d'un fitxer JSON de configuració. Interfície gràfica (PySide6) i CLI. Sense serveis externs, sense caducitat d'enllaços ni rastrejament.",
+        'proj.02.status':        'Publicat · Codi obert',
+        'proj.02.cta':           'GitHub →',
         'tag.industrial.design': 'Disseny Industrial',
         'tag.medical.innovation':'Innovació Mèdica',
         'tag.electronics':       'Electrònica',
@@ -568,6 +577,11 @@
         'proj.01.desc':          "Biomimetic simulator of the kangaroo method to improve the well-being of premature infants in incubators. Replicates the breathing and heartbeat of parents through a closed air circuit, with no electronic components near the baby.",
         'proj.01.status':        'Functional prototype · Seeking industrial partners',
         'proj.01.cta':           'View project →',
+        'proj.02.num':           'Project 02',
+        'proj.02.title':         'QR Code Batch Generator',
+        'proj.02.desc':          'Python tool to generate QR codes in bulk from a JSON configuration file. Desktop GUI (PySide6) and CLI. No external services, no expiry links, no tracking.',
+        'proj.02.status':        'Published · Open source',
+        'proj.02.cta':           'GitHub →',
         'tag.industrial.design': 'Industrial Design',
         'tag.medical.innovation':'Medical Innovation',
         'tag.electronics':       'Electronics',
