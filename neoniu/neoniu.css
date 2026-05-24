@@ -805,3 +805,86 @@ footer .container {
   .hero-stats { gap: 1.25rem; }
   .container { padding: 0 1.25rem; }
 }
+
+/* ════════════════════════════════════
+   HAMBURGER MENU
+════════════════════════════════════ */
+
+/* Ocult en escriptori */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--nn-muted);
+  border-radius: 1px;
+  transition: all 0.25s ease;
+  transform-origin: center;
+}
+
+/* Animació → X quan obert */
+nav.nav-open .nav-hamburger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background: var(--nn-accent);
+}
+nav.nav-open .nav-hamburger span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+nav.nav-open .nav-hamburger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background: var(--nn-accent);
+}
+
+@media (max-width: 480px) {
+  .nav-hamburger { display: flex; }
+  .nav-portfolio-link { display: none; }
+
+  /* Menú desplegat */
+  nav.nav-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(15, 30, 46, 0.97);
+    backdrop-filter: blur(16px);
+    padding: 5rem 2rem 2rem;
+    border-bottom: 1px solid var(--nn-border);
+    z-index: 150;
+    animation: fadeUp 0.2s ease both;
+  }
+  nav.nav-open .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid var(--nn-border);
+  }
+  nav.nav-open .nav-links a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1rem;
+    color: var(--nn-text);
+    letter-spacing: 0.02em;
+  }
+  nav.nav-open .nav-links a:hover { color: var(--nn-accent); }
+  nav.nav-open .nav-links a::after { display: none; }
+
+  /* Link portfolio fixat a baix del menú obert */
+  nav.nav-open .nav-portfolio-link {
+    display: block;
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 151;
+  }
+}
