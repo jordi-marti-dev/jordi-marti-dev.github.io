@@ -731,6 +731,42 @@ h2 {
 .doc-item:hover .doc-arrow { color: var(--nn-accent); transform: translateX(3px); }
 
 /* ════════════════════════════════════
+   GALERIA EXPOSICIÓ
+════════════════════════════════════ */
+.expo-gallery {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--nn-border);
+}
+.expo-figure {
+  margin: 0;
+  border-radius: var(--nn-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--nn-border);
+  box-shadow: var(--nn-shadow);
+  max-width: 640px;
+}
+.expo-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0.88) saturate(0.85);
+  transition: filter 0.4s;
+}
+.expo-figure:hover img {
+  filter: brightness(0.96) saturate(1);
+}
+.expo-figure figcaption {
+  background: var(--nn-bg2);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.75rem;
+  color: var(--nn-faint);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  border-top: 1px solid var(--nn-border);
+}
+
+/* ════════════════════════════════════
    FOOTER
 ════════════════════════════════════ */
 footer {
@@ -804,87 +840,4 @@ footer .container {
   h1 { font-size: 2rem; }
   .hero-stats { gap: 1.25rem; }
   .container { padding: 0 1.25rem; }
-}
-
-/* ════════════════════════════════════
-   HAMBURGER MENU
-════════════════════════════════════ */
-
-/* Ocult en escriptori */
-.nav-hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  z-index: 200;
-}
-.nav-hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--nn-muted);
-  border-radius: 1px;
-  transition: all 0.25s ease;
-  transform-origin: center;
-}
-
-/* Animació → X quan obert */
-nav.nav-open .nav-hamburger span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-  background: var(--nn-accent);
-}
-nav.nav-open .nav-hamburger span:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-nav.nav-open .nav-hamburger span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-  background: var(--nn-accent);
-}
-
-@media (max-width: 480px) {
-  .nav-hamburger { display: flex; }
-  .nav-portfolio-link { display: none; }
-
-  /* Menú desplegat */
-  nav.nav-open .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    background: rgba(15, 30, 46, 0.97);
-    backdrop-filter: blur(16px);
-    padding: 5rem 2rem 2rem;
-    border-bottom: 1px solid var(--nn-border);
-    z-index: 150;
-    animation: fadeUp 0.2s ease both;
-  }
-  nav.nav-open .nav-links li {
-    width: 100%;
-    border-bottom: 1px solid var(--nn-border);
-  }
-  nav.nav-open .nav-links a {
-    display: block;
-    padding: 1rem 0;
-    font-size: 1rem;
-    color: var(--nn-text);
-    letter-spacing: 0.02em;
-  }
-  nav.nav-open .nav-links a:hover { color: var(--nn-accent); }
-  nav.nav-open .nav-links a::after { display: none; }
-
-  /* Link portfolio fixat a baix del menú obert */
-  nav.nav-open .nav-portfolio-link {
-    display: block;
-    position: fixed;
-    bottom: 2rem;
-    left: 2rem;
-    z-index: 151;
-  }
 }
