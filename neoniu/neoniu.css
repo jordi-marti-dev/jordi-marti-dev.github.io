@@ -826,7 +826,7 @@ footer .container {
 ════════════════════════════════════ */
 @media (max-width: 768px) {
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { display: none; } /* imatge oculta en mòbil per velocitat */
+
   .problema-body { grid-template-columns: 1fr; }
   .features-grid { grid-template-columns: 1fr; }
   .solucio-flow { flex-direction: column; }
