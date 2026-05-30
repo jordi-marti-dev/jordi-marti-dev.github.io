@@ -76,7 +76,7 @@ nav .container {
   letter-spacing: -0.01em;
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* gap només afecta badge, no Neo/Niu */
+  gap: 0;
 }
 /* Neo i Niu en el mateix flux de text sense separació */
 .nav-logo .neo { font-weight: 800; color: #FFFFFF; letter-spacing: -0.01em; }
@@ -92,7 +92,7 @@ nav .container {
   padding: 0.1rem 0.45rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-left: 0.25rem;
+  margin-left: 0.5rem;
 }
 
 /* Links de nav (ancores internes) */
@@ -737,12 +737,12 @@ h2 {
   border-top: 1px solid var(--nn-border);
 }
 .expo-figure {
-  margin: 0;
+  margin: 0 auto;
   border-radius: var(--nn-radius-lg);
   overflow: hidden;
   border: 1px solid var(--nn-border);
   box-shadow: var(--nn-shadow);
-  max-width: 640px;
+  max-width: 320px;
 }
 .expo-figure img {
   width: 100%;
