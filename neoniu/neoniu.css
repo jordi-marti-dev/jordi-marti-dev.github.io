@@ -918,3 +918,117 @@ nav.nav-open .nav-hamburger span:nth-child(3) {
     z-index: 151;
   }
 }
+
+/* ════════════════════════════════════
+   ENQUESTA
+════════════════════════════════════ */
+#enquesta {
+  padding: 5rem 0;
+  background: var(--nn-bg2);
+  border-top: 1px solid var(--nn-border);
+}
+
+.survey-form {
+  max-width: 560px;
+  margin: 2.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.survey-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.survey-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--nn-text);
+  letter-spacing: 0.01em;
+}
+
+.survey-select,
+.survey-textarea {
+  background: var(--nn-bg3);
+  border: 1px solid var(--nn-border);
+  border-radius: var(--nn-radius);
+  color: var(--nn-text);
+  font-family: var(--nn-body);
+  font-size: 0.9rem;
+  padding: 0.65rem 1rem;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.survey-select:focus,
+.survey-textarea:focus {
+  outline: none;
+  border-color: var(--nn-accent);
+}
+
+.survey-select option {
+  background: var(--nn-bg3);
+}
+
+.survey-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.survey-textarea::placeholder {
+  color: var(--nn-faint);
+}
+
+/* Estrelles — ordre invers per al truc CSS */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.25rem;
+  width: fit-content;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  font-size: 2rem;
+  color: var(--nn-faint);
+  cursor: pointer;
+  transition: color 0.15s;
+  line-height: 1;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+  color: var(--nn-accent);
+}
+
+.survey-btn {
+  align-self: flex-start;
+  background: var(--nn-accent);
+  color: #0f1e2e;
+  border: none;
+  border-radius: var(--nn-radius);
+  font-family: var(--nn-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.survey-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.survey-note {
+  font-size: 0.85rem;
+  color: var(--nn-accent2);
+  margin-top: -1rem;
+}
+}

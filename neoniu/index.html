@@ -22,6 +22,7 @@
         <li><a href="#solucio">Solució</a></li>
         <li><a href="#documentacio">Docs</a></li>
         <li><a href="#validacio">Validació</a></li>
+        <li><a href="#enquesta">Enquesta</a></li>
       </ul>
       <a href="https://jordimarti.dev/" class="nav-portfolio-link">Portfolio</a>
       <button class="nav-hamburger" aria-label="Obrir menú" aria-expanded="false">
@@ -145,7 +146,7 @@
   <section id="solucio">
     <div class="container">
       <div class="section-eyebrow">03 · La Solució</div>
-      <h2>Tres elements,<br>cap electrònica prop del nadó</h2>
+      <h2>Tres elements,<br>cap electrònica a prop del nadó</h2>
       <p class="section-lead">
         Un circuit tancat d'aire porta el moviment i el so fins al matalàs
         d'aire dins la incubadora. Cap component electrònic creua
@@ -322,6 +323,55 @@
     </div>
   </section>
   
+  <!-- ══ ENQUESTA ══════════════════════════════════════════ -->
+  <section id="enquesta">
+    <div class="container">
+      <div class="section-label">Participa</div>
+      <h2 class="section-title">Enquesta de valoració</h2>
+      <p class="section-intro">La teva opinió ajuda a millorar el NeoNiu. Només 3 preguntes, menys d'un minut.</p>
+
+      <form class="survey-form" action="https://formspree.io/f/mzdwqpll" method="POST">
+
+        <!-- 1. Perfil -->
+        <div class="survey-field">
+          <label class="survey-label" for="perfil">Quin és el teu perfil?</label>
+          <select class="survey-select" id="perfil" name="perfil" required>
+            <option value="" disabled selected>Selecciona una opció…</option>
+            <option value="professional">Professional del sector</option>
+            <option value="docent">Docent / Investigador</option>
+            <option value="familia">Familiar d'un prematur</option>
+            <option value="altres">Altres</option>
+          </select>
+        </div>
+
+        <!-- 2. Valoració -->
+        <div class="survey-field">
+          <label class="survey-label">Valoració global del projecte</label>
+          <div class="star-rating" role="radiogroup" aria-label="Valoració">
+            <input type="radio" id="star5" name="valoracio" value="5" required><label for="star5" title="Excel·lent">★</label>
+            <input type="radio" id="star4" name="valoracio" value="4"><label for="star4" title="Molt bé">★</label>
+            <input type="radio" id="star3" name="valoracio" value="3"><label for="star3" title="Bé">★</label>
+            <input type="radio" id="star2" name="valoracio" value="2"><label for="star2" title="Regular">★</label>
+            <input type="radio" id="star1" name="valoracio" value="1"><label for="star1" title="Millorable">★</label>
+          </div>
+        </div>
+
+        <!-- 3. Propostes -->
+        <div class="survey-field">
+          <label class="survey-label" for="propostes">Propostes de millora o comentaris</label>
+          <textarea class="survey-textarea" id="propostes" name="propostes" rows="4" placeholder="Escriu aquí les teves idees o suggeriments…"></textarea>
+        </div>
+
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_subject" value="Nova resposta · Enquesta NeoNiu">
+
+        <button type="submit" class="survey-btn">Enviar valoració →</button>
+        <p class="survey-note" id="survey-thanks" hidden>Gràcies per la teva participació!</p>
+      </form>
+    </div>
+  </section>
+
   <!-- ══ FOOTER ═════════════════════════════════════════ -->
   <footer>
     <div class="container">
@@ -352,6 +402,31 @@
         hamburger.setAttribute('aria-expanded', false);
       });
     });
+  </script>
+  <script>
+    const surveyForm = document.querySelector('.survey-form');
+    if (surveyForm) {
+      surveyForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = surveyForm.querySelector('.survey-btn');
+        btn.disabled = true;
+        btn.textContent = 'Enviant…';
+        const res = await fetch(surveyForm.action, {
+          method: 'POST',
+          body: new FormData(surveyForm),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          surveyForm.reset();
+          btn.textContent = 'Enviat ✓';
+          document.getElementById('survey-thanks').hidden = false;
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Enviar valoració →';
+          alert('Hi ha hagut un error. Torna-ho a intentar.');
+        }
+      });
+    }
   </script>
 </body>
 </html>
