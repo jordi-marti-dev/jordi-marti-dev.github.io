@@ -424,6 +424,7 @@ h2 {
   border-radius: var(--nn-radius-lg);
   padding: 1.75rem;
   margin-top: 1.5rem;
+  margin-bottom: 2rem;
 }
 .info-card .ic-label {
   font-size: 0.7rem;
@@ -616,6 +617,43 @@ h2 {
   padding-bottom: 2.5rem;
 }
 .timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-item--expandable {
+  cursor: pointer;
+  margin-left: -1rem;
+  padding-left: 1rem;
+  padding-right: 0.75rem;
+  border-radius: var(--nn-radius-lg);
+  transition: background 0.2s;
+}
+.timeline-item--expandable::before {
+  left: -1rem;
+}
+.timeline-item--expandable:hover,
+.timeline-item--expandable.is-open {
+  background: var(--nn-bg3);
+}
+.tl-arrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: var(--nn-faint);
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  transition: transform 0.3s ease, color 0.2s;
+}
+.timeline-item--expandable:hover .tl-arrow,
+.timeline-item--expandable.is-open .tl-arrow { color: var(--nn-accent); }
+.timeline-item--expandable.is-open .tl-arrow { transform: rotate(180deg); }
+
+.timeline-photo {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+}
+.timeline-item--expandable.is-open .timeline-photo {
+  max-height: 420px;
+}
+.timeline-photo .expo-figure { margin-top: 1.25rem; }
 .timeline-item::before {
   content: '';
   position: absolute;
@@ -729,13 +767,8 @@ h2 {
 .doc-item:hover .doc-arrow { color: var(--nn-accent); transform: translateX(3px); }
 
 /* ════════════════════════════════════
-   GALERIA EXPOSICIÓ
+   FIGURA EXPOSICIÓ
 ════════════════════════════════════ */
-.expo-gallery {
-  margin-top: 3rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--nn-border);
-}
 .expo-figure {
   margin: 0 auto;
   border-radius: var(--nn-radius-lg);
