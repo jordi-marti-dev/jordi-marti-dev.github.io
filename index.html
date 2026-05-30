@@ -233,6 +233,9 @@
           <span class="lang-sep">·</span>
           <button class="lang-btn" data-lang="en">EN</button>
         </div>
+        <button class="nav-hamburger" aria-label="Obrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
@@ -252,8 +255,6 @@
       </p>
       <div class="hero-cta fade-up delay-3">
         <a href="#projectes" class="btn btn-primary" data-i18n="hero.cta.project">NeoNiu →</a>
-        <a href="https://es.linkedin.com/in/jmartiprats" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
-        <a href="https://github.com/jordi-marti-dev" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
       </div>
       <div class="hero-stats fade-up delay-4">
         <div>
@@ -432,6 +433,12 @@
         </div>
 
         <div class="timeline-item">
+          <div class="timeline-date">2006</div>
+          <div class="timeline-title" data-i18n="edu.mrl.title">Màster en Prevenció de Riscos Laborals – Especialitat Seguretat en el Treball</div>
+          <div class="timeline-where" data-i18n="edu.mrl.where">UPC · Barcelona</div>
+        </div>
+
+        <div class="timeline-item">
           <div class="timeline-date">2003</div>
           <div class="timeline-title" data-i18n="edu.2.title">Postgrau en Desenvolupament de Projectes d'Enginyeria de Producte</div>
           <div class="timeline-where" data-i18n="edu.2.where">UPC – Fundació CIM · Barcelona Tech</div>
@@ -534,6 +541,8 @@
         'edu.1.title':           "Diploma d'Expertesa en Python per a Professionals: Nivell Inicial",
         'edu.1.where':           'Universitat Politècnica de Catalunya (UPC)',
         'edu.1.desc':            "Formació especialitzada en Python aplicat a l'automatització de processos, scripting i anàlisi de dades.",
+        'edu.mrl.title':         'Màster en Prevenció de Riscos Laborals – Especialitat Seguretat en el Treball',
+        'edu.mrl.where':         'UPC · Barcelona',
         'edu.2.title':           "Postgrau en Desenvolupament de Projectes d'Enginyeria de Producte",
         'edu.2.where':           'UPC – Fundació CIM · Barcelona Tech',
         'edu.2.desc':            'Gestió i desenvolupament de projectes tècnics orientats a producte industrial.',
@@ -583,6 +592,8 @@
         'edu.1.title':           'Expert Diploma in Python for Professionals: Initial Level',
         'edu.1.where':           'Polytechnic University of Catalonia (UPC)',
         'edu.1.desc':            'Specialized training in Python applied to process automation, scripting and data analysis.',
+        'edu.mrl.title':         "Master's Degree in Occupational Risk Prevention – Specialisation in Work Safety",
+        'edu.mrl.where':         'UPC · Barcelona',
         'edu.2.title':           'Postgraduate in Product Engineering Project Development',
         'edu.2.where':           'UPC – Fundació CIM · Barcelona Tech',
         'edu.2.desc':            'Management and development of technical projects oriented to industrial product.',
@@ -616,6 +627,23 @@
     });
 
     setLang(localStorage.getItem('lang') || 'ca');
+
+    // ── Menú hamburguesa ──
+    const hamburger = document.querySelector('.nav-hamburger');
+    const nav       = document.querySelector('nav');
+    const navLinks  = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('nav-open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('nav-open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
   </script>
 
 </body>
