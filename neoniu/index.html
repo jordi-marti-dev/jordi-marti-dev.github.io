@@ -17,16 +17,21 @@
         <span class="badge">ES1260772Y</span>
       </a>
       <ul class="nav-links">
-        <li class="nav-mobile-only"><a href="#hero">Inici</a></li>
-        <li><a href="#problema">Problema</a></li>
-        <li><a href="#video">Vídeo</a></li>
-        <li><a href="#solucio">Solució</a></li>
-        <li><a href="#documentacio">Docs</a></li>
-        <li><a href="#validacio">Validació</a></li>
-        <li><a href="#enquesta">Enquesta</a></li>
+        <li class="nav-mobile-only"><a href="#hero" data-i18n="nav.home">Inici</a></li>
+        <li><a href="#problema" data-i18n="nav.problema">Problema</a></li>
+        <li><a href="#video" data-i18n="nav.video">Vídeo</a></li>
+        <li><a href="#solucio" data-i18n="nav.solucio">Solució</a></li>
+        <li><a href="#documentacio" data-i18n="nav.docs">Docs</a></li>
+        <li><a href="#validacio" data-i18n="nav.validacio">Validació</a></li>
+        <li><a href="#enquesta" data-i18n="nav.enquesta">Enquesta</a></li>
       </ul>
+      <div class="nn-lang-switcher">
+        <button class="nn-lang-btn" data-lang="ca">CA</button>
+        <span class="nn-lang-sep">·</span>
+        <button class="nn-lang-btn" data-lang="en">EN</button>
+      </div>
       <a href="https://jordimarti.dev/" class="nav-portfolio-link">Portfolio</a>
-      <button class="nav-hamburger" aria-label="Obrir menú" aria-expanded="false">
+      <button class="nav-hamburger" aria-label="Obrir menú" aria-expanded="false" data-i18n-arialabel="nav.hamburger">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -40,26 +45,27 @@
         <div class="hero-text">
           <div class="hero-kicker fade-up">
             <span class="dot"></span>
-            Simulador del Mètode Cangur
+            <span data-i18n="hero.kicker">Simulador del Mètode Cangur</span>
           </div>
-          <h1 class="fade-up delay-1">
+          <h1 class="fade-up delay-1" data-i18n-html="hero.h1">
             Una abraçada<br>
             <span class="accent">biomimètica</span><br>
             <span class="soft">per als prematurs</span>
           </h1>
-          <p class="hero-desc fade-up delay-2">
+          <p class="hero-desc fade-up delay-2" data-i18n-html="hero.desc">
             <strong>NeoNiu</strong> replica la respiració i els batecs dels pares
             dins la incubadora — sense cap component electrònic prop del nadó.
           </p>
           <div class="hero-cta fade-up delay-3">
-            <a href="#video" class="btn btn-primary">Veure el vídeo ↓</a>
+            <a href="#video" class="btn btn-primary" data-i18n="hero.cta">Veure el vídeo ↓</a>
           </div>
         </div>
 
         <div class="hero-visual fade-up delay-2">
           <div class="hero-img-frame">
-            <img src="img/cangur-render-mobile.jpg" alt="Render 3D del NeoNiu: unitat de control, tub i matalàs dins incubadora">
-
+            <img src="img/cangur-render-mobile.jpg"
+                 alt="Render 3D del NeoNiu: unitat de control, tub i matalàs dins incubadora"
+                 data-i18n-alt="hero.img.alt">
           </div>
         </div>
 
@@ -70,22 +76,22 @@
   <!-- ══ PROBLEMA ══════════════════════════════════════ -->
   <section id="problema">
     <div class="container">
-      <div class="section-eyebrow">01 · El Problema</div>
-      <h2>Nadons prematurs separats<br>dels seus pares</h2>
+      <div class="section-eyebrow" data-i18n="s01.eyebrow">01 · El Problema</div>
+      <h2 data-i18n-html="s01.h2">Nadons prematurs separats<br>dels seus pares</h2>
       <div class="problema-body">
         <div class="problema-text">
-          <p>
+          <p data-i18n-html="s01.p1">
             Cada any, uns <strong>13 milions de nadons neixen prematurs</strong> al món.
             A Espanya, la prematuritat afecta el <strong>6,1% dels naixements</strong> (19.495 casos el 2024, INE).
             Aquests nadons necessiten incubadora, separats dels seus pares en el
             moment més crític del seu desenvolupament.
           </p>
-          <p>
+          <p data-i18n-html="s01.p2">
             El mètode cangur —contacte pell amb pell del nadó amb els progenitors— millora la termorregulació,
-            la freqüència cardíaca, el son i el vincle emocional. <br>El problema:
+            la freqüència cardíaca, el son i el vincle emocional. El problema:
             <strong>No sempre és possible mantenir el contacte físic.</strong>
           </p>
-          <p>
+          <p data-i18n-html="s01.p3">
             NeoNiu replica els estímuls biomimètics —moviment respiratori i sons
             parentals— dins la incubadora, sense separar el nadó de l'entorn clínic
             controlat i sense cap risc elèctric.
@@ -96,22 +102,22 @@
         <div class="problema-stats">
           <div class="p-stat">
             <div class="p-stat-num"> 6,1%</div>
-            <div class="p-stat-text">
+            <div class="p-stat-text" data-i18n-html="s01.stat1">
               <strong>Prematurs (< 37 set.)</strong>
               19.495 nascuts a Espanya · INE 2024
             </div>
           </div>
           <div class="p-stat">
             <div class="p-stat-num">2.371</div>
-            <div class="p-stat-text">
+            <div class="p-stat-text" data-i18n-html="s01.stat2">
               <strong>Grans prematurs i extrems (< 32 set.)</strong>
-              0,75% nascuts a Espanya · 12,2% dels prematurs totals 
+              0,75% nascuts a Espanya · 12,2% dels prematurs totals
               · INE 2024
             </div>
           </div>
           <div class="p-stat">
             <div class="p-stat-num"> 13M</div>
-            <div class="p-stat-text">
+            <div class="p-stat-text" data-i18n-html="s01.stat3">
               <strong>Nadons prematurs</strong>
               cada any al món (OMS 2023)
             </div>
@@ -124,12 +130,13 @@
   <!-- ══ VÍDEO ══════════════════════════════════════════ -->
   <section id="video">
     <div class="container">
-      <div class="section-eyebrow">02 · Vídeo del Projecte</div>
-      <h2>Veure el NeoNiu en acció</h2>
+      <div class="section-eyebrow" data-i18n="s02.eyebrow">02 · Vídeo del Projecte</div>
+      <h2 data-i18n="s02.h2">Veure el NeoNiu en acció</h2>
       <div class="video-wrapper">
         <iframe
           src="https://www.youtube.com/embed/RUOePaCttqU?rel=0"
           title="NeoNiu · Simulador del Mètode Cangur"
+          data-i18n-title="s02.iframe"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
         </iframe>
@@ -140,38 +147,38 @@
   <!-- ══ SOLUCIÓ ════════════════════════════════════════ -->
   <section id="solucio">
     <div class="container">
-      <div class="section-eyebrow">03 · La Solució</div>
-      <h2>Tres elements per mantenir el contacte</h2>
-      <p class="section-lead">
+      <div class="section-eyebrow" data-i18n="s03.eyebrow">03 · La Solució</div>
+      <h2 data-i18n-html="s03.h2">Tres elements,<br>cap electrònica a prop del nadó</h2>
+      <p class="section-lead" data-i18n="s03.lead">
         Un circuit tancat d'aire porta el moviment i el so fins al matalàs
         d'aire dins la incubadora. Cap component electrònic creua
         la barrera de seguretat neonatal.
       </p>
           <div class="info-card">
-            <div class="ic-label">Propietat Industrial</div>
-            <div class="ic-value">Model d'Utilitat ES 1260772 Y · OEPM · 2021</div>
+            <div class="ic-label" data-i18n="s03.card.label">Propietat Industrial</div>
+            <div class="ic-value" data-i18n="s03.card.value">Model d'Utilitat ES 1260772 Y · OEPM · 2021</div>
           </div>
       <!-- Diagrama de flux -->
       <div class="solucio-flow">
         <div class="flow-node">
           <div class="flow-icon">⚙️</div>
-          <div class="flow-title">Unitat de Control</div>
-          <div class="flow-sub">Microcontrolador + actuador + altaveu</div>
+          <div class="flow-title" data-i18n="s03.flow1.title">Unitat de Control</div>
+          <div class="flow-sub" data-i18n="s03.flow1.sub">Microcontrolador + actuador + altaveu</div>
         </div>
         <div class="flow-node">
           <div class="flow-icon">〰️</div>
-          <div class="flow-title">Circuit d'Aire</div>
-          <div class="flow-sub">Tub flexible + so</div>
+          <div class="flow-title" data-i18n="s03.flow2.title">Circuit d'Aire</div>
+          <div class="flow-sub" data-i18n="s03.flow2.sub">Tub flexible + so</div>
         </div>
         <div class="flow-node">
           <div class="flow-icon">🫧</div>
-          <div class="flow-title">Matalàs d'aire</div>
-          <div class="flow-sub">Dins la incubadora</div>
+          <div class="flow-title" data-i18n="s03.flow3.title">Matalàs d'aire</div>
+          <div class="flow-sub" data-i18n="s03.flow3.sub">Dins la incubadora</div>
         </div>
         <div class="flow-node">
           <div class="flow-icon">👶</div>
-          <div class="flow-title">Nadó</div>
-          <div class="flow-sub">Estímuls sobre el matalàs</div>
+          <div class="flow-title" data-i18n="s03.flow4.title">Nadó</div>
+          <div class="flow-sub" data-i18n="s03.flow4.sub">Rep estímuls sobre el matalàs</div>
         </div>
       </div>
 
@@ -203,30 +210,30 @@
               <rect x="14" y="14" width="4" height="4" rx="0.5" fill="var(--nn-accent2)" opacity="0.6"/>
             </svg>
           </div>
-          <div class="feature-title">0 electrònica prop del nadó</div>
-          <div class="feature-desc">
+          <div class="feature-title" data-i18n="s03.feat1.title">0 electrònica prop del nadó</div>
+          <div class="feature-desc" data-i18n-html="s03.feat1.desc">
             Cap component electrònic, metàl·lic ni electromagnètic a l'interior de la incubadora. <br>Compatible amb proves
             de diagnòstic per imatge.
           </div>
         </div>
         <div class="feature">
           <div class="feature-icon">∿</div>
-          <div class="feature-title">Biomimètic</div>
-          <div class="feature-desc">
+          <div class="feature-title" data-i18n="s03.feat2.title">Biomimètic</div>
+          <div class="feature-desc" data-i18n-html="s03.feat2.desc">
             Reprodueix el moviment respiratori dels pares. <br>Transmet sons reals: veu, batecs del cor.
           </div>
         </div>
         <div class="feature">
           <div class="feature-icon text-icon">€</div>
-          <div class="feature-title">Baix cost</div>
-          <div class="feature-desc">
+          <div class="feature-title" data-i18n="s03.feat3.title">Baix cost</div>
+          <div class="feature-desc" data-i18n-html="s03.feat3.desc">
             Materials i components accessibles. <br>Dissenyat per a entorns hospitalaris amb recursos limitats.
           </div>
         </div>
         <div class="feature">
           <div class="feature-icon">👤</div>
-          <div class="feature-title">Personalitzable</div>
-          <div class="feature-desc">
+          <div class="feature-title" data-i18n="s03.feat4.title">Personalitzable</div>
+          <div class="feature-desc" data-i18n-html="s03.feat4.desc">
             Ritme respiratori, sons i intensitat ajustables i personalitzables per a cada nadó i família.
           </div>
         </div>
@@ -237,22 +244,22 @@
   <!-- ══ DOCUMENTACIÓ ═══════════════════════════════════ -->
   <section id="documentacio">
     <div class="container">
-      <div class="section-eyebrow">04 · Documentació</div>
-      <h2>Recursos i referències</h2>
+      <div class="section-eyebrow" data-i18n="s04.eyebrow">04 · Documentació</div>
+      <h2 data-i18n="s04.h2">Recursos i referències</h2>
       <div class="docs-list">
         <a href="docs/NeoNiu_2026.pdf" class="doc-item" target="_blank" rel="noopener">
           <span class="doc-icon">PDF</span>
           <div class="doc-body">
-            <div class="doc-title">Presentació del NeoNiu · 2026</div>
-            <div class="doc-meta">Descripció completa del projecte, requisits i solució proposada</div>
+            <div class="doc-title" data-i18n="s04.doc1.title">Presentació del NeoNiu · 2026</div>
+            <div class="doc-meta" data-i18n="s04.doc1.meta">Descripció completa del projecte, requisits i solució proposada</div>
           </div>
           <span class="doc-arrow">→</span>
         </a>
         <div class="doc-item doc-item--static">
           <span class="doc-icon">OEPM</span>
           <div class="doc-body">
-            <div class="doc-title">Model d'Utilitat ES 1260772 Y · OEPM</div>
-            <div class="doc-meta">Propietat Industrial · Registrat el 04/05/2021 · Ref. U202000524</div>
+            <div class="doc-title" data-i18n="s04.doc2.title">Model d'Utilitat ES 1260772 Y · OEPM</div>
+            <div class="doc-meta" data-i18n="s04.doc2.meta">Propietat Industrial · Registrat el 04/05/2021 · Ref. U202000524</div>
           </div>
         </div>
         <a href="https://doi.org/10.1109/JBHI.2014.2349153" class="doc-item" target="_blank" rel="noopener">
@@ -270,93 +277,97 @@
     <!-- ══ VALIDACIÓ ══════════════════════════════════════ -->
   <section id="validacio">
     <div class="container">
-      <div class="section-eyebrow">05 · Validació</div>
-      <h2>Del problema personal<br>a la propietat industrial</h2>
-      <p class="section-lead">
+      <div class="section-eyebrow" data-i18n="s05.eyebrow">05 · Validació</div>
+      <h2 data-i18n-html="s05.h2">Del problema personal<br>a la propietat industrial</h2>
+      <p class="section-lead" data-i18n="s05.lead">
         NeoNiu neix de l'experiència directa a la UCI neonatal de l'Hospital
         Vall d'Hebron i avança pas a pas cap a la validació clínica.
       </p>
       <div class="timeline">
         <div class="timeline-item timeline-item--expandable">
           <div class="timeline-year">2024</div>
-          <div class="timeline-title">Exposició pública · 10è aniversari de l'Ateneu de Fabricació de Les Corts <span class="tl-arrow">↓</span></div>
-          <div class="timeline-source">Biblioteca Montserrat Abelló · Barcelona · Octubre 2024</div>
-          <div class="timeline-desc">El prototip del NeoNiu s'exposa en el marc de la celebració dels deu anys de l'Ateneu de Fabricació de Les Corts, amb una presentació pública davant la comunitat de makers, docents i agents del barri.</div>
+          <div class="timeline-title" data-i18n-html="s05.tl1.title">Exposició pública · 10è aniversari de l'Ateneu de Fabricació de Les Corts <span class="tl-arrow">↓</span></div>
+          <div class="timeline-source" data-i18n="s05.tl1.source">Biblioteca Montserrat Abelló · Barcelona · Octubre 2024</div>
+          <div class="timeline-desc" data-i18n="s05.tl1.desc">El prototip del NeoNiu s'exposa en el marc de la celebració dels deu anys de l'Ateneu de Fabricació de Les Corts, amb presentació pública davant la comunitat de makers, docents i agents del barri.</div>
           <div class="timeline-photo">
             <figure class="expo-figure">
-              <img src="img/exposicio_foto1_mobile.jpg" alt="Prototip del NeoNiu exposat a la Biblioteca Montserrat Abelló durant el 10è aniversari de l'Ateneu de Fabricació de Les Corts, octubre 2024">
-              <figcaption>Prototip del NeoNiu exposat a la Biblioteca Montserrat Abelló · Octubre 2024</figcaption>
+              <img src="img/exposicio_foto1_mobile.jpg"
+                   alt="Prototip del NeoNiu exposat a la Biblioteca Montserrat Abelló durant el 10è aniversari de l'Ateneu de Fabricació de Les Corts, octubre 2024"
+                   data-i18n-alt="s05.tl1.img.alt">
+              <figcaption data-i18n="s05.tl1.figcaption">Prototip del NeoNiu exposat a la Biblioteca Montserrat Abelló · Octubre 2024</figcaption>
             </figure>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2023</div>
-          <div class="timeline-title">Prototip funcional construït</div>
-          <div class="timeline-source">Ateneu de Fabricació de Les Corts · Barcelona · Fabricació digital i electrònica</div>
-          <div class="timeline-desc">Construcció i validació funcional del primer prototip amb matalàs d'aire, unitat de control i circuit d'aire tancat.</div>
+          <div class="timeline-title" data-i18n="s05.tl2.title">Prototip funcional construït</div>
+          <div class="timeline-source" data-i18n="s05.tl2.source">Ateneu de Fabricació de Les Corts · Barcelona · Fabricació digital i electrònica</div>
+          <div class="timeline-desc" data-i18n="s05.tl2.desc">Construcció i validació funcional del primer prototip amb matalàs d'aire, unitat de control i circuit d'aire tancat.</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2021</div>
-          <div class="timeline-title">Model d'Utilitat ES 1260772 Y</div>
-          <div class="timeline-source">Oficina Espanyola de Patents i Marques (OEPM) · Propietat industrial registrada</div>
-          <div class="timeline-desc">Registre oficial del disseny del simulador.</div>
+          <div class="timeline-title" data-i18n="s05.tl3.title">Model d'Utilitat ES 1260772 Y</div>
+          <div class="timeline-source" data-i18n="s05.tl3.source">Oficina Espanyola de Patents i Marques (OEPM) · Propietat industrial registrada</div>
+          <div class="timeline-desc" data-i18n="s05.tl3.desc">Registre oficial del disseny del simulador.</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2015</div>
-          <div class="timeline-title">Base acadèmica</div>
+          <div class="timeline-title" data-i18n="s05.tl4.title">Base acadèmica</div>
           <div class="timeline-source">IEEE J. Biomed. Health Inform., vol. 19, no. 3 · TU/e Eindhoven</div>
-          <div class="timeline-desc">Estudi sobre el coixí intel·ligent "Mimo Pillow", que transmet les vibracions del batec cardíac matern a nadons. Fonament científic directe per al disseny biomimètic del NeoNiu.</div>
+          <div class="timeline-desc" data-i18n="s05.tl4.desc">Estudi sobre el coixí intel·ligent "Mimo Pillow", que transmet les vibracions del batec cardíac matern a nadons. Fonament científic directe per al disseny biomimètic del NeoNiu.</div>
         </div>
       </div>
 
     </div>
   </section>
-  
+
   <!-- ══ ENQUESTA ══════════════════════════════════════════ -->
   <section id="enquesta">
     <div class="container">
-      <div class="section-label">Participa</div>
-      <h2 class="section-title">Enquesta de valoració</h2>
-      <p class="section-intro">La teva opinió ajuda a millorar el NeoNiu. Només 3 preguntes, menys d'un minut.</p>
+      <div class="section-label" data-i18n="enq.label">Participa</div>
+      <h2 class="section-title" data-i18n="enq.h2">Enquesta de valoració</h2>
+      <p class="section-intro" data-i18n="enq.intro">La teva opinió ajuda a millorar el NeoNiu. Només 3 preguntes, menys d'un minut.</p>
 
       <form class="survey-form" action="https://formspree.io/f/mzdwqpll" method="POST">
 
         <!-- 1. Perfil -->
         <div class="survey-field">
-          <label class="survey-label" for="perfil">Quin és el teu perfil?</label>
+          <label class="survey-label" for="perfil" data-i18n="enq.q1.label">Quin és el teu perfil?</label>
           <select class="survey-select" id="perfil" name="perfil" required>
-            <option value="" disabled selected>Selecciona una opció…</option>
-            <option value="professional">Professional del sector</option>
-            <option value="docent">Docent / Investigador</option>
-            <option value="familia">Familiar d'un prematur</option>
-            <option value="altres">Altres</option>
+            <option value="" disabled selected data-i18n="enq.q1.opt0">Selecciona una opció…</option>
+            <option value="professional" data-i18n="enq.q1.opt1">Professional del sector</option>
+            <option value="docent" data-i18n="enq.q1.opt2">Docent / Investigador</option>
+            <option value="familia" data-i18n="enq.q1.opt3">Familiar d'un prematur</option>
+            <option value="altres" data-i18n="enq.q1.opt4">Altres</option>
           </select>
         </div>
 
         <!-- 2. Valoració -->
         <div class="survey-field">
-          <label class="survey-label">Valoració global del projecte</label>
+          <label class="survey-label" data-i18n="enq.q2.label">Valoració global del projecte</label>
           <div class="star-rating" role="radiogroup" aria-label="Valoració">
-            <input type="radio" id="star5" name="valoracio" value="5" required><label for="star5" title="Excel·lent">★</label>
-            <input type="radio" id="star4" name="valoracio" value="4"><label for="star4" title="Molt bé">★</label>
-            <input type="radio" id="star3" name="valoracio" value="3"><label for="star3" title="Bé">★</label>
-            <input type="radio" id="star2" name="valoracio" value="2"><label for="star2" title="Regular">★</label>
-            <input type="radio" id="star1" name="valoracio" value="1"><label for="star1" title="Millorable">★</label>
+            <input type="radio" id="star5" name="valoracio" value="5" required><label for="star5" title="Excel·lent" data-i18n-title="star5.title">★</label>
+            <input type="radio" id="star4" name="valoracio" value="4"><label for="star4" title="Molt bé" data-i18n-title="star4.title">★</label>
+            <input type="radio" id="star3" name="valoracio" value="3"><label for="star3" title="Bé" data-i18n-title="star3.title">★</label>
+            <input type="radio" id="star2" name="valoracio" value="2"><label for="star2" title="Regular" data-i18n-title="star2.title">★</label>
+            <input type="radio" id="star1" name="valoracio" value="1"><label for="star1" title="Millorable" data-i18n-title="star1.title">★</label>
           </div>
         </div>
 
         <!-- 3. Propostes -->
         <div class="survey-field">
-          <label class="survey-label" for="propostes">Propostes de millora o comentaris</label>
-          <textarea class="survey-textarea" id="propostes" name="propostes" rows="4" placeholder="Escriu aquí les teves idees o suggeriments…"></textarea>
+          <label class="survey-label" for="propostes" data-i18n="enq.q3.label">Propostes de millora o comentaris</label>
+          <textarea class="survey-textarea" id="propostes" name="propostes" rows="4"
+            placeholder="Escriu aquí les teves idees o suggeriments…"
+            data-i18n-placeholder="enq.q3.placeholder"></textarea>
         </div>
 
         <!-- Honeypot anti-spam -->
         <input type="text" name="_gotcha" style="display:none">
-        <input type="hidden" name="_subject" value="Nova resposta · Enquesta NeoNiu">
+        <input type="hidden" name="_subject" value="Nova resposta · Enquesta NeoNiu" data-i18n-value="enq.subject">
 
-        <button type="submit" class="survey-btn">Enviar valoració →</button>
-        <p class="survey-note" id="survey-thanks" hidden>Gràcies per la teva participació!</p>
+        <button type="submit" class="survey-btn" data-i18n="enq.btn">Enviar valoració →</button>
+        <p class="survey-note" id="survey-thanks" hidden data-i18n="enq.thanks">Gràcies per la teva participació!</p>
       </form>
     </div>
   </section>
@@ -368,13 +379,259 @@
       <div class="footer-meta">
         © 2026 Jordi Martí Prats ·
         <a href="mailto:jordi.marti.dev@gmail.com">jordi.marti.dev@gmail.com</a>
-        · Construït amb HTML/CSS · Hostatjat a GitHub Pages
+        · <span data-i18n="footer.built">Construït amb HTML/CSS · Hostatjat a GitHub Pages</span>
       </div>
       <a href="https://jordimarti.dev/" class="footer-portfolio">Portfolio</a>
     </div>
   </footer>
 
   <script>
+    // ── Traduccions ──────────────────────────────────────────
+    const translations = {
+      ca: {
+        'page.title':        'NeoNiu · Simulador del Mètode Cangur',
+        'page.metadesc':     "NeoNiu replica la respiració i els batecs dels pares dins la incubadora, sense cap component electrònic prop del nadó. Model d'Utilitat ES1260772Y registrat a l'OEPM.",
+        'nav.home':          'Inici',
+        'nav.problema':      'Problema',
+        'nav.video':         'Vídeo',
+        'nav.solucio':       'Solució',
+        'nav.docs':          'Docs',
+        'nav.validacio':     'Validació',
+        'nav.enquesta':      'Enquesta',
+        'nav.hamburger':     'Obrir menú',
+        'hero.kicker':       'Simulador del Mètode Cangur',
+        'hero.h1':           'Una abraçada<br><span class="accent">biomimètica</span><br><span class="soft">per als prematurs</span>',
+        'hero.desc':         '<strong>NeoNiu</strong> replica la respiració i els batecs dels pares dins la incubadora — sense cap component electrònic prop del nadó.',
+        'hero.cta':          'Veure el vídeo ↓',
+        'hero.img.alt':      'Render 3D del NeoNiu: unitat de control, tub i matalàs dins incubadora',
+        's01.eyebrow':       '01 · El Problema',
+        's01.h2':            'Nadons prematurs separats<br>dels seus pares',
+        's01.p1':            "Cada any, uns <strong>13 milions de nadons neixen prematurs</strong> al món. A Espanya, la prematuritat afecta el <strong>6,1% dels naixements</strong> (19.495 casos el 2024, INE). Aquests nadons necessiten incubadora, separats dels seus pares en el moment més crític del seu desenvolupament.",
+        's01.p2':            "El mètode cangur —contacte pell amb pell del nadó amb un progenitor— millora la termorregulació, la freqüència cardíaca, el son i el vincle emocional. <br>El problema: <strong>No sempre és possible mantenir el contacte físic.</strong>",
+        's01.p3':            "NeoNiu replica els estímuls biomimètics —moviment respiratori i sons parentals— dins la incubadora, sense separar el nadó de l'entorn clínic controlat i sense cap risc elèctric.",
+        's01.stat1':         "<strong>Prematurs (< 37 set.)</strong> 19.495 nascuts a Espanya · INE 2024",
+        's01.stat2':         "<strong>Grans prematurs i extrems (< 32 set.)</strong> 0,75% nascuts a Espanya · 12,2% dels prematurs totals · INE 2024",
+        's01.stat3':         "<strong>Nadons prematurs</strong> cada any al món (OMS 2023)",
+        's02.eyebrow':       '02 · Vídeo del Projecte',
+        's02.h2':            'Veure el NeoNiu en acció',
+        's02.iframe':        'NeoNiu · Simulador del Mètode Cangur',
+        's03.eyebrow':       '03 · La Solució',
+        's03.h2':            'Tres elements<br>per mantenir el contacte',
+        's03.lead':          "Un circuit tancat d'aire porta el moviment i el so fins al matalàs d'aire dins la incubadora. Cap component electrònic creua la barrera de seguretat neonatal.",
+        's03.card.label':    'Propietat Industrial',
+        's03.card.value':    "Model d'Utilitat ES 1260772 Y · OEPM · 2021",
+        's03.flow1.title':   'Unitat de Control',
+        's03.flow1.sub':     'Microcontrolador + actuador + altaveu',
+        's03.flow2.title':   "Circuit d'Aire",
+        's03.flow2.sub':     'Tub flexible + so',
+        's03.flow3.title':   "Matalàs d'aire",
+        's03.flow3.sub':     'Dins la incubadora',
+        's03.flow4.title':   'Nadó',
+        's03.flow4.sub':     'Estímuls sobre el matalàs',
+        's03.feat1.title':   '0 electrònica prop del nadó',
+        's03.feat1.desc':    "Cap component electrònic, metàl·lic ni electromagnètic a l'interior de la incubadora.<br>Compatible amb proves de diagnòstic per imatge.",
+        's03.feat2.title':   'Biomimètic',
+        's03.feat2.desc':    'Reprodueix el moviment respiratori dels pares.<br>Transmet sons reals: veu, batecs del cor.',
+        's03.feat3.title':   'Baix cost',
+        's03.feat3.desc':    'Materials i components accessibles.<br>Dissenyat per a entorns hospitalaris amb recursos limitats.',
+        's03.feat4.title':   'Personalitzable',
+        's03.feat4.desc':    'Ritme respiratori, sons i intensitat ajustables i personalitzables per a cada nadó i família.',
+        's04.eyebrow':       '04 · Documentació',
+        's04.h2':            'Recursos i referències',
+        's04.doc1.title':    'Presentació del NeoNiu · 2026',
+        's04.doc1.meta':     'Descripció completa del projecte, requisits i solució proposada',
+        's04.doc2.title':    "Model d'Utilitat ES 1260772 Y · OEPM",
+        's04.doc2.meta':     'Propietat Industrial · Registrat el 04/05/2021 · Ref. U202000524',
+        's05.eyebrow':       '05 · Validació',
+        's05.h2':            'Del problema personal<br>a la propietat industrial',
+        's05.tl3.title':     "Model d'Utilitat ES 1260772 Y",
+        's05.lead':          "NeoNiu neix de l'experiència directa a la UCI neonatal de l'Hospital Vall d'Hebron i avança pas a pas cap a la validació clínica.",
+        's05.tl1.title':     "Exposició pública · 10è aniversari de l'Ateneu de Fabricació de Les Corts <span class=\"tl-arrow\">↓</span>",
+        's05.tl1.source':    'Biblioteca Montserrat Abelló · Barcelona · Octubre 2024',
+        's05.tl1.desc':      "El prototip del NeoNiu s'exposa en el marc de la celebració dels deu anys de l'Ateneu de Fabricació de Les Corts, amb una presentació pública davant la comunitat de makers, docents i agents del barri.",
+        's05.tl1.figcaption':"Prototip del NeoNiu exposat a la Biblioteca Montserrat Abelló · Octubre 2024",
+        's05.tl1.img.alt':   "Prototip del NeoNiu exposat a la Biblioteca Montserrat Abelló durant el 10è aniversari de l'Ateneu de Fabricació de Les Corts, octubre 2024",
+        's05.tl2.title':     'Prototip funcional construït',
+        's05.tl2.source':    'Ateneu de Fabricació de Les Corts · Barcelona · Fabricació digital i electrònica',
+        's05.tl2.desc':      "Construcció i validació funcional del primer prototip amb matalàs d'aire, unitat de control i circuit d'aire tancat.",
+        's05.tl3.source':    'Oficina Espanyola de Patents i Marques (OEPM) · Propietat industrial registrada',
+        's05.tl3.desc':      'Registre oficial del disseny del simulador.',
+        's05.tl4.title':     'Base acadèmica',
+        's05.tl4.desc':      'Estudi sobre el coixí intel·ligent "Mimo Pillow", que transmet les vibracions del batec cardíac matern a nadons. Fonament científic directe per al disseny biomimètic del NeoNiu.',
+        'star5.title':       'Excel·lent',
+        'star4.title':       'Molt bé',
+        'star3.title':       'Bé',
+        'star2.title':       'Regular',
+        'star1.title':       'Millorable',
+        'enq.label':         'Participa',
+        'enq.h2':            'Enquesta de valoració',
+        'enq.intro':         "La teva opinió ajuda a millorar el NeoNiu. Només 3 preguntes, menys d'un minut.",
+        'enq.q1.label':      'Quin és el teu perfil?',
+        'enq.q1.opt0':       'Selecciona una opció…',
+        'enq.q1.opt1':       'Professional del sector',
+        'enq.q1.opt2':       'Docent / Investigador',
+        'enq.q1.opt3':       "Familiar d'un prematur",
+        'enq.q1.opt4':       'Altres',
+        'enq.q2.label':      'Valoració global del projecte',
+        'enq.q3.label':      'Propostes de millora o comentaris',
+        'enq.q3.placeholder':"Escriu aquí les teves idees o suggeriments…",
+        'enq.btn':           'Enviar valoració →',
+        'enq.btn.sending':   'Enviant…',
+        'enq.btn.sent':      'Enviat ✓',
+        'enq.thanks':        'Gràcies per la teva participació!',
+        'enq.subject':       'Nova resposta · Enquesta NeoNiu',
+        'enq.error':         'Hi ha hagut un error. Torna-ho a intentar.',
+        'footer.built':      'Construït amb HTML/CSS · Hostatjat a GitHub Pages',
+      },
+      en: {
+        'page.title':        'NeoNiu · Kangaroo Care Method Simulator',
+        'page.metadesc':     "NeoNiu replicates the parents' breathing and heartbeat inside the incubator, with no electronic components near the newborn. Utility Model ES1260772Y registered at the OEPM.",
+        'nav.home':          'Home',
+        'nav.problema':      'Problem',
+        'nav.video':         'Video',
+        'nav.solucio':       'Solution',
+        'nav.docs':          'Docs',
+        'nav.validacio':     'Validation',
+        'nav.enquesta':      'Survey',
+        'nav.hamburger':     'Open menu',
+        'hero.kicker':       'Kangaroo Care Method Simulator',
+        'hero.h1':           'A biomimetic<br><span class="accent">embrace</span><br><span class="soft">for premature infants</span>',
+        'hero.desc':         "<strong>NeoNiu</strong> replicates the parents' breathing and heartbeat inside the incubator — with no electronic components near the newborn.",
+        'hero.cta':          'Watch the video ↓',
+        'hero.img.alt':      '3D render of NeoNiu: control unit, tube and air mattress inside an incubator',
+        's01.eyebrow':       '01 · The Problem',
+        's01.h2':            'Premature infants separated<br>from their parents',
+        's01.p1':            "Every year, around <strong>13 million newborns are born premature</strong> worldwide. In Spain, prematurity affects <strong>6.1% of births</strong> (19,495 cases in 2024, INE). These newborns require an incubator, separated from their parents at the most critical moment of their development.",
+        's01.p2':            "Kangaroo mother care —skin-to-skin contact between the newborn and a parent— improves thermoregulation, heart rate, sleep, and emotional bonding. <br>The problem: <strong>It is not always possible to maintain physical contact.</strong>",
+        's01.p3':            "NeoNiu replicates biomimetic stimuli —respiratory movement and parental sounds— inside the incubator, without disrupting the clinical environment and with no electrical hazard.",
+        's01.stat1':         "<strong>Premature infants (< 37 wks.)</strong> 19,495 born in Spain · INE 2024",
+        's01.stat2':         "<strong>Late and extreme premature (< 32 wks.)</strong> 0.75% born in Spain · 12.2% of all premature · INE 2024",
+        's01.stat3':         "<strong>Premature newborns</strong> every year worldwide (WHO 2023)",
+        's02.eyebrow':       '02 · Project Video',
+        's02.h2':            'See NeoNiu in action',
+        's02.iframe':        'NeoNiu · Kangaroo Care Method Simulator',
+        's03.eyebrow':       '03 · The Solution',
+        's03.h2':            'Three elements<br>to keep "in touch"',
+        's03.lead':          "A closed air circuit carries movement and sound to the air mattress inside the incubator. No electronic component crosses the neonatal safety barrier.",
+        's03.card.label':    'Intellectual Property',
+        's03.card.value':    'Utility Model ES 1260772 Y · OEPM · 2021',
+        's03.flow1.title':   'Control Unit',
+        's03.flow1.sub':     'Microcontroller + actuator + speaker',
+        's03.flow2.title':   'Air Circuit',
+        's03.flow2.sub':     'Flexible tube + sound',
+        's03.flow3.title':   'Air mattress',
+        's03.flow3.sub':     'Inside the incubator',
+        's03.flow4.title':   'Newborn',
+        's03.flow4.sub':     'Stimuli on the mattress',
+        's03.feat1.title':   '0 electronics near the newborn',
+        's03.feat1.desc':    "No electronic, metallic or electromagnetic component inside the incubator.<br>Compatible with medical imaging diagnostics.",
+        's03.feat2.title':   'Biomimetic',
+        's03.feat2.desc':    "Replicates the parents' respiratory movement.<br>Transmits real sounds: voice, heartbeat.",
+        's03.feat3.title':   'Low cost',
+        's03.feat3.desc':    'Accessible materials and components.<br>Designed for hospital environments with limited resources.',
+        's03.feat4.title':   'Customisable',
+        's03.feat4.desc':    'Respiratory rate, sounds and intensity are adjustable and customisable for each infant and family.',
+        's04.eyebrow':       '04 · Documentation',
+        's04.h2':            'Resources and references',
+        's04.doc1.title':    'NeoNiu Presentation · 2026',
+        's04.doc1.meta':     'Full project description, requirements and proposed solution',
+        's04.doc2.title':    'Utility Model ES 1260772 Y · OEPM',
+        's04.doc2.meta':     'Industrial Property · Registered on 04/05/2021 · Ref. U202000524',
+        's05.eyebrow':       '05 · Validation',
+        's05.h2':            'From personal experience<br>to intellectual property',
+        's05.tl3.title':     'Utility Model ES 1260772 Y',
+        's05.lead':          "NeoNiu was born from direct experience at the neonatal ICU of Hospital Vall d'Hebron and advances step by step towards clinical validation.",
+        's05.tl1.title':     'Public exhibition · 10th anniversary of the Ateneu de Fabricació de Les Corts <span class="tl-arrow">↓</span>',
+        's05.tl1.source':    'Biblioteca Montserrat Abelló · Barcelona · October 2024',
+        's05.tl1.desc':      "The NeoNiu prototype was exhibited as part of the 10th anniversary celebrations of the Ateneu de Fabricació de Les Corts, with a public presentation to the maker community, educators and local stakeholders.",
+        's05.tl1.figcaption':'NeoNiu prototype exhibited at the Biblioteca Montserrat Abelló · October 2024',
+        's05.tl1.img.alt':   "NeoNiu prototype exhibited at the Biblioteca Montserrat Abelló during the 10th anniversary of the Ateneu de Fabricació de Les Corts, October 2024",
+        's05.tl2.title':     'Functional prototype built',
+        's05.tl2.source':    'Ateneu de Fabricació de Les Corts · Barcelona · Digital fabrication and electronics',
+        's05.tl2.desc':      'Construction and functional validation of the first prototype with air mattress, control unit and closed air circuit.',
+        's05.tl3.source':    'Spanish Patent and Trademark Office (OEPM) · Registered industrial property',
+        's05.tl3.desc':      'Official registration of the simulator design.',
+        's05.tl4.title':     'Academic foundation',
+        's05.tl4.desc':      'Study on the "Mimo Pillow" smart pillow, which transmits maternal heartbeat vibrations to newborns. Direct scientific foundation for the biomimetic design of NeoNiu.',
+        'star5.title':       'Excellent',
+        'star4.title':       'Very good',
+        'star3.title':       'Good',
+        'star2.title':       'Fair',
+        'star1.title':       'Needs improvement',
+        'enq.label':         'Participate',
+        'enq.h2':            'Rating survey',
+        'enq.intro':         'Your opinion helps improve NeoNiu. Only 3 questions, less than a minute.',
+        'enq.q1.label':      'What is your profile?',
+        'enq.q1.opt0':       'Select an option…',
+        'enq.q1.opt1':       'Healthcare professional',
+        'enq.q1.opt2':       'Educator / Researcher',
+        'enq.q1.opt3':       'Family of a premature infant',
+        'enq.q1.opt4':       'Other',
+        'enq.q2.label':      'Overall project rating',
+        'enq.q3.label':      'Improvement suggestions or comments',
+        'enq.q3.placeholder':'Write your ideas or suggestions here…',
+        'enq.btn':           'Submit rating →',
+        'enq.btn.sending':   'Sending…',
+        'enq.btn.sent':      'Sent ✓',
+        'enq.thanks':        'Thank you for your participation!',
+        'enq.subject':       'New response · NeoNiu Survey',
+        'enq.error':         'An error occurred. Please try again.',
+        'footer.built':      'Built with HTML/CSS · Hosted on GitHub Pages',
+      }
+    };
+
+    // ── Aplicar idioma ───────────────────────────────────────
+    let currentLang = 'ca';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.title = translations[lang]['page.title'];
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.content = translations[lang]['page.metadesc'];
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const val = translations[lang][el.dataset.i18n];
+        if (val !== undefined) el.textContent = val;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const val = translations[lang][el.dataset.i18nHtml];
+        if (val !== undefined) el.innerHTML = val;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(el => {
+        const val = translations[lang][el.dataset.i18nTitle];
+        if (val !== undefined) el.title = val;
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const val = translations[lang][el.dataset.i18nPlaceholder];
+        if (val !== undefined) el.placeholder = val;
+      });
+      document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+        const val = translations[lang][el.dataset.i18nAlt];
+        if (val !== undefined) el.alt = val;
+      });
+      document.querySelectorAll('[data-i18n-value]').forEach(el => {
+        const val = translations[lang][el.dataset.i18nValue];
+        if (val !== undefined) el.value = val;
+      });
+      document.querySelectorAll('[data-i18n-arialabel]').forEach(el => {
+        const val = translations[lang][el.dataset.i18nArialabel];
+        if (val !== undefined) el.setAttribute('aria-label', val);
+      });
+
+      document.querySelectorAll('.nn-lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      localStorage.setItem('lang', lang);
+    }
+
+    document.querySelectorAll('.nn-lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    setLang(localStorage.getItem('lang') || 'ca');
+
+    // ── Menú hamburguesa ─────────────────────────────────────
     const hamburger = document.querySelector('.nav-hamburger');
     const navLinks  = document.querySelector('.nav-links');
     const nav       = document.querySelector('nav');
@@ -384,28 +641,28 @@
       hamburger.setAttribute('aria-expanded', isOpen);
     });
 
-    // Tancar el menú en clicar qualsevol link
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         nav.classList.remove('nav-open');
         hamburger.setAttribute('aria-expanded', false);
       });
     });
-  </script>
-  <script>
+
+    // ── Timeline expandible ──────────────────────────────────
     const expandable = document.querySelector('.timeline-item--expandable');
     if (expandable) {
       expandable.querySelector('.timeline-photo').addEventListener('click', e => e.stopPropagation());
       expandable.addEventListener('click', () => expandable.classList.toggle('is-open'));
     }
 
+    // ── Formulari enquesta ───────────────────────────────────
     const surveyForm = document.querySelector('.survey-form');
     if (surveyForm) {
       surveyForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = surveyForm.querySelector('.survey-btn');
         btn.disabled = true;
-        btn.textContent = 'Enviant…';
+        btn.textContent = translations[currentLang]['enq.btn.sending'];
         const res = await fetch(surveyForm.action, {
           method: 'POST',
           body: new FormData(surveyForm),
@@ -413,12 +670,12 @@
         });
         if (res.ok) {
           surveyForm.reset();
-          btn.textContent = 'Enviat ✓';
+          btn.textContent = translations[currentLang]['enq.btn.sent'];
           document.getElementById('survey-thanks').hidden = false;
         } else {
           btn.disabled = false;
-          btn.textContent = 'Enviar valoració →';
-          alert('Hi ha hagut un error. Torna-ho a intentar.');
+          btn.textContent = translations[currentLang]['enq.btn'];
+          alert(translations[currentLang]['enq.error']);
         }
       });
     }

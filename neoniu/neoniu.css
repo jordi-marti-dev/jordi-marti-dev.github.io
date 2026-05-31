@@ -145,6 +145,38 @@ nav .container {
 }
 .nav-portfolio-link::before { content: '← '; }
 
+/* ── SELECTOR D'IDIOMA ── */
+.nn-lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+.nn-lang-btn {
+  font-family: var(--nn-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--nn-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 0.2rem 0.4rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nn-lang-btn:hover { color: var(--nn-accent); }
+.nn-lang-btn.active {
+  color: var(--nn-accent);
+  border-color: var(--nn-accent);
+}
+.nn-lang-sep {
+  color: var(--nn-border);
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
 /* ════════════════════════════════════
    HERO
 ════════════════════════════════════ */
@@ -916,6 +948,7 @@ nav.nav-open .nav-hamburger span:nth-child(3) {
 @media (max-width: 480px) {
   .nav-hamburger { display: flex; }
   .nav-portfolio-link { display: none; }
+  .nn-lang-switcher { position: relative; z-index: 160; }
 
   nav.nav-open .nav-links {
     display: flex;
