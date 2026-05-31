@@ -1038,9 +1038,12 @@ nav.nav-open .nav-hamburger span:nth-child(3) {
 }
 
 .star-rating label:hover,
-.star-rating label:hover ~ label,
-.star-rating input:checked ~ label {
+.star-rating label:hover ~ label {
   color: var(--nn-accent);
+}
+
+.star-rating input:checked ~ label {
+  color: #f5c518;
 }
 
 .survey-btn {
