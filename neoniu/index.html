@@ -626,6 +626,14 @@
         btn.classList.toggle('active', btn.dataset.lang === lang);
       });
       localStorage.setItem('lang', lang);
+      // Actualitzar subtítols del vídeo segons l'idioma
+      const iframe = document.querySelector('#video iframe');
+      if (iframe) {
+        const base = 'https://www.youtube.com/embed/RUOePaCttqU?rel=0';
+        iframe.src = lang === 'en'
+          ? base + '&cc_load_policy=1&cc_lang_pref=en'
+          : base;
+      }
     }
 
     document.querySelectorAll('.nn-lang-btn').forEach(btn => {
