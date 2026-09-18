@@ -368,6 +368,7 @@
 
         <button type="submit" class="survey-btn" data-i18n="enq.btn">Enviar valoració →</button>
         <p class="survey-note" id="survey-thanks" hidden data-i18n="enq.thanks">Gràcies per la teva participació!</p>
+        <p class="survey-label survey-privacy" data-i18n-html="enq.privacy">* Les respostes són anònimes. Les dades es processen mitjançant <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree</a>.</p>
       </form>
     </div>
   </section>
@@ -481,6 +482,7 @@
         'enq.thanks':        'Gràcies per la teva participació!',
         'enq.subject':       'Nova resposta · Enquesta NeoNiu',
         'enq.error':         'Hi ha hagut un error. Torna-ho a intentar.',
+        'enq.privacy':       '* Les respostes són anònimes. Les dades es processen mitjançant <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree</a>.',
         'footer.built':      'Construït amb HTML/CSS · Hostatjat a GitHub Pages',
       },
       en: {
@@ -576,6 +578,7 @@
         'enq.thanks':        'Thank you for your participation!',
         'enq.subject':       'New response · NeoNiu Survey',
         'enq.error':         'An error occurred. Please try again.',
+        'enq.privacy':       '* Responses are anonymous. Data is processed via <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree</a>.',
         'footer.built':      'Built with HTML/CSS · Hosted on GitHub Pages',
       }
     };
@@ -629,7 +632,10 @@
       btn.addEventListener('click', () => setLang(btn.dataset.lang));
     });
 
-    setLang(localStorage.getItem('lang') || 'ca');
+    //setLang(localStorage.getItem('lang') || 'ca');
+    // Prioritat: 1) paràmetre URL  2) localStorage  3) català per defecte
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    setLang(urlLang || localStorage.getItem('lang') || 'ca');
 
     // ── Menú hamburguesa ─────────────────────────────────────
     const hamburger = document.querySelector('.nav-hamburger');
