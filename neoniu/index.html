@@ -247,8 +247,7 @@
       <div class="section-eyebrow" data-i18n="s04.eyebrow">04 · Documentació</div>
       <h2 data-i18n="s04.h2">Recursos i referències</h2>
       <div class="docs-list">
-        <a href="docs/NeoNiu_2026.pdf" class="doc-item" target="_blank" rel="noopener">
-          <span class="doc-icon">PDF</span>
+        <a href="docs/NeoNiu_2026.pdf" class="doc-item" target="_blank" rel="noopener" data-i18n-href="s04.doc1.href">          <span class="doc-icon">PDF</span>
           <div class="doc-body">
             <div class="doc-title" data-i18n="s04.doc1.title">Presentació del NeoNiu · 2026</div>
             <div class="doc-meta" data-i18n="s04.doc1.meta">Descripció completa del projecte, requisits i solució proposada</div>
@@ -265,8 +264,24 @@
         <a href="https://doi.org/10.1109/JBHI.2014.2349153" class="doc-item" target="_blank" rel="noopener">
           <span class="doc-icon ext">IEEE</span>
           <div class="doc-body">
-            <div class="doc-title">Mimo Pillow (IEEE J. Biomed. Health Inform., 2015)</div>
-            <div class="doc-meta">W. Chen, S. B. Oetomo, D. Tetteroo et al. · vol. 19, no. 3, pp. 979–985 · doi: 10.1109/JBHI.2014.2349153</div>
+            <div class="doc-title">Mimo Pillow — An Intelligent Cushion Designed With Maternal Heart Beat Vibrations for Comforting Newborn Infants</div>
+            <div class="doc-meta">W. Chen et al. · IEEE J. Biomed. Health Inform., vol. 19, no. 3, pp. 979–985, May 2015 · doi: 10.1109/JBHI.2014.2349153</div>
+          </div>
+          <span class="doc-arrow">↗</span>
+        </a>
+        <div class="doc-item doc-item--static">
+          <span class="doc-icon">INE</span>
+          <div class="doc-body">
+            <div class="doc-title">Estadística de Nacimientos. Movimiento Natural de la Población 2024</div>
+            <div class="doc-meta">Instituto Nacional de Estadística (INE) · Taula 31958 · España 2024</div>
+          </div>
+        </div>
+
+        <a href="https://www.who.int/news-room/fact-sheets/detail/preterm-birth" class="doc-item" target="_blank" rel="noopener">
+          <span class="doc-icon ext">WHO</span>
+          <div class="doc-body">
+            <div class="doc-title">Preterm Birth — Fact Sheet</div>
+            <div class="doc-meta">World Health Organization (WHO) · 2023</div>
           </div>
           <span class="doc-arrow">↗</span>
         </a>
@@ -381,7 +396,7 @@
         © 2026 Jordi Martí Prats ·
         <a href="mailto:jordi.marti.dev@gmail.com">jordi.marti.dev@gmail.com</a>
         · <span data-i18n="footer.built">Construït amb HTML/CSS · Hostatjat a GitHub Pages</span>
-      </div>
+        · <span data-i18n-html="footer.analytics">Analítica sense cookies via <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a></span>      </div>
       <a href="https://jordimarti.dev/" class="footer-portfolio">Portfolio</a>
     </div>
   </footer>
@@ -441,6 +456,7 @@
         's04.h2':            'Recursos i referències',
         's04.doc1.title':    'Presentació del NeoNiu · 2026',
         's04.doc1.meta':     'Descripció completa del projecte, requisits i solució proposada',
+        's04.doc1.href':     'docs/NeoNiu_2026.pdf',
         's04.doc2.title':    "Model d'Utilitat ES 1260772 Y · OEPM",
         's04.doc2.meta':     'Propietat Industrial · Registrat el 04/05/2021 · Ref. U202000524',
         's05.eyebrow':       '05 · Validació',
@@ -483,6 +499,7 @@
         'enq.subject':       'Nova resposta · Enquesta NeoNiu',
         'enq.error':         'Hi ha hagut un error. Torna-ho a intentar.',
         'enq.privacy':       '* Les respostes són anònimes. Les dades es processen mitjançant <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree</a>.',
+        'footer.analytics': 'Analítica sense cookies via <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a>',  
         'footer.built':      'Construït amb HTML/CSS · Hostatjat a GitHub Pages',
       },
       en: {
@@ -537,6 +554,7 @@
         's04.h2':            'Resources and references',
         's04.doc1.title':    'NeoNiu Presentation · 2026',
         's04.doc1.meta':     'Full project description, requirements and proposed solution',
+        's04.doc1.href':     'docs/NeoNiu_2026_ENG.pdf',
         's04.doc2.title':    'Utility Model ES 1260772 Y · OEPM',
         's04.doc2.meta':     'Industrial Property · Registered on 04/05/2021 · Ref. U202000524',
         's05.eyebrow':       '05 · Validation',
@@ -579,6 +597,7 @@
         'enq.subject':       'New response · NeoNiu Survey',
         'enq.error':         'An error occurred. Please try again.',
         'enq.privacy':       '* Responses are anonymous. Data is processed via <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree</a>.',
+        'footer.analytics': 'Privacy-friendly analytics via <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a>',
         'footer.built':      'Built with HTML/CSS · Hosted on GitHub Pages',
       }
     };
@@ -634,6 +653,11 @@
           ? base + '&cc_load_policy=1&cc_lang_pref=en'
           : base;
       }
+      // Actualitzar href segons l'idioma
+      document.querySelectorAll('[data-i18n-href]').forEach(el => {
+        const val = translations[lang][el.dataset.i18nHref];
+        if (val !== undefined) el.href = val;
+      });
     }
 
     document.querySelectorAll('.nn-lang-btn').forEach(btn => {
